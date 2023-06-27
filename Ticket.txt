@@ -1,0 +1,9 @@
+			Teatro: Chachita
+	Numero de venta : 35
+	Nombre de la función: Chicago
+	Total de boletos: 3
+	Fecha de venta: 2022-12-09
+	Hora de venta: 09:32:11
+	Costo Total: 480.0
+	Monto entregado: 500.0
+	Cambio: 20.00
