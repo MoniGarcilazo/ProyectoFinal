@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Boleto;
 import modelo.Funcion;
-import ventanas.VentanaPrincipal;
+import vista.VentanaPrincipal;
 
 /**
  *

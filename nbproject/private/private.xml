@@ -7,30 +7,11 @@
             <file>file:/C:/Users/samux/OneDrive/Documentos/POO%20PF/ProyectoFinal/src/DAO/DaoTicket.java</file>
         </group>
         <group>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/controlador/ControlLogin.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/test/MainPrueba.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoAsientos.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/ControlPago.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/RegistroObra.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoObras.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/controlador/ControlReporte.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/controlador/ControlVentanaPrincipal.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/Reportes.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/controlador/ControlFuncion.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoReporte.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/RegistroFuncion.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoVentaBoleto.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/controlador/ControlAsientos.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoBoletos.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/RegistroBoleto.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/VentanaPrincipal.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoLogin.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoFuncion.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/RegistroUsuario.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/Login.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/controlador/ControlUsuario.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/DAO/DaoUsuario.java</file>
-            <file>file:/C:/Users/hp/Documents/NetBeansProjects/POO%20PF/ProyectoFinal/src/ventanas/Sala.java</file>
+            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlAsientos.java</file>
+            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlFuncion.java</file>
+            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/DAO/DaoFuncion.java</file>
+            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlUsuario.java</file>
+            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlLogin.java</file>
         </group>
     </open-files>
 </project-private>

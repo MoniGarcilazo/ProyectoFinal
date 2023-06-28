@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.StringTokenizer;
 import javax.swing.JOptionPane;
 import modelo.Ticket;
-import ventanas.VentanaPrincipal;
+import vista.VentanaPrincipal;
 
 /**
  *

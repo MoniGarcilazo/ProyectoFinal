@@ -11,10 +11,10 @@ import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Boleto;
-import ventanas.Login;
-import ventanas.RegistroBoleto;
-import ventanas.Sala;
-import ventanas.VentanaPrincipal;
+import vista.Login;
+import vista.RegistroBoleto;
+import vista.Sala;
+import vista.VentanaPrincipal;
 
 /**
  *
