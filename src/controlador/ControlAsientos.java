@@ -18,7 +18,7 @@ import javax.swing.JToggleButton;
 import modelo.Asiento;
 import modelo.Boleto;
 import modelo.Funcion;
-import ventanas.VentanaPrincipal;
+import vista.VentanaPrincipal;
 
 /**
  *

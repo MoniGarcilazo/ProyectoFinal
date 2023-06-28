@@ -8,11 +8,11 @@ import DAO.DaoLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Usuario;
-import ventanas.Login;
+import vista.Login;
 import javax.swing.JOptionPane;
 import modelo.Funcion;
 import modelo.ObraTeatral;
-import ventanas.VentanaPrincipal;
+import vista.VentanaPrincipal;
 
 /**
  *

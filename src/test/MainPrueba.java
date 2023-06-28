@@ -10,9 +10,9 @@ import controlador.ControlUsuario;
 import java.beans.Visibility;
 import modelo.ObraTeatral;
 import modelo.Usuario;
-import ventanas.Login;
-import ventanas.RegistroUsuario;
-import ventanas.VentanaPrincipal;
+import vista.Login;
+import vista.RegistroUsuario;
+import vista.VentanaPrincipal;
 
 /**
  *

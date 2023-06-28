@@ -15,7 +15,7 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Funcion;
 import modelo.ObraTeatral;
-import ventanas.VentanaPrincipal;
+import vista.VentanaPrincipal;
 
 /**
  *
@@ -45,16 +45,22 @@ public class ControlFuncion implements ActionListener, MouseListener{
     
     
     @Override
-    public void actionPerformed(ActionEvent e) {
-        
+    public void actionPerformed(ActionEvent e){
+        agregarFuncion(e);
+        modificarFuncion(e);
+        eliminarFuncion(e);
+    }
+    
+    public void agregarFuncion(ActionEvent e){
         //Agregar Funcion
         if ( this.menu.getPanelFuncion().getBtnAgregar() == e.getSource()) {
             capturarDatos();
             if( funcion != null ) {
                  int numFunciones = daoFuncion.verificarFuncionesPorDia(funcion);      
                 int numHorarios = daoFuncion.verificarHorariosFunciones(funcion);
+                boolean menosDeDosFunciones = numFunciones == 0 || numFunciones == 1 ;
                 // Este if con ayuda del dao verifica si existen menos de 2 funciones para poder agregar otros, en caso contrario no agregar y mandar msj del error
-                if (numFunciones == 0 || numFunciones == 1  ) {                                  
+                if (menosDeDosFunciones) {                                  
                             if( numHorarios == 0 ) {
                                 int idSala = daoFuncion.agregarFuncion(funcion);
                                 daoAsientos.agregarSala(idSala);
@@ -68,12 +74,10 @@ public class ControlFuncion implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Registro sin éxito, se han pasado los limites de registros de dicha fecha");
                         }
             }
-            
-           
-            
         }
-        
-        // Modificar Funcion
+    }
+    
+    public void modificarFuncion(ActionEvent e){
         if (this.menu.getPanelFuncion().getBtnModificar()== e.getSource() ) {
              capturarDatos();
              
@@ -93,8 +97,9 @@ public class ControlFuncion implements ActionListener, MouseListener{
                 }
              
         }
-        
-        // Eliminar Funcion
+    }
+    
+    public void eliminarFuncion(ActionEvent e){
         if(this.menu.getPanelFuncion().getBtnEliminar() == e.getSource()) {
             capturarDatos();
             if( funcion != null ) { 
@@ -108,16 +113,12 @@ public class ControlFuncion implements ActionListener, MouseListener{
             }
             
         }
-        
-        
     }
-    
     
     public void capturarDatos() {
         
         try
         {
-
             ObraTeatral obra = (ObraTeatral) this.menu.getPanelFuncion().getComboBoxObras().getSelectedItem();
         
           //Capturar la fecha y pasarlo a formato para base MySQL
