@@ -46,88 +46,87 @@ public class ControlObras implements ActionListener, MouseListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        //Primero debemos de validar el rango correcto de la duración de la obra  
-            //Agregar Usuario
-        if( this.menu.getPanelObra().getBtnAgregar() == e.getSource()    ) { 
-            try {
-                capturarDatos(); //Capturar los datos de la ventanilla
-                daoObra.agregarObra(obra);
-                limpiar();
-                daoObra.cargarTabla(menu.getPanelObra().getTblObras());
-                this.obra = null;
-            } catch(CamposObligatoriosException e1){
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
-        }catch(TiempoMaximoException e2){
-            JOptionPane.showMessageDialog(null, "Duracion Incorrecta");
-        } 
-            catch (Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
-        }
-         
-        }
-        
-        
-        // Modificar Obra
-        if( this.menu.getPanelObra().getBtnModificar()== e.getSource()    ) {  
-         
-          
-                try {
-                capturarDatos(); //Capturar los datos de la ventanilla
-                obra.setID(Integer.parseInt(menu.getPanelObra().getTxtID().getText()) );
-                daoObra.modificarObra(obra);
-                limpiar();
-                daoObra.cargarTabla(menu.getPanelObra().getTblObras());
-                this.obra = null;
-                }catch(CamposObligatoriosException e1){
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
-        }catch(TiempoMaximoException e2){
-            JOptionPane.showMessageDialog(null, "Duracion Incorrecta");
-        } catch (Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
-        }
-            
-            
-         
-        }
-        
-        if( this.menu.getPanelObra().getBtnEliminar() == e.getSource()   ) { 
-           
-             
-                try {
-                capturarDatos(); //Capturar los datos de la ventanilla
-                obra.setID(Integer.parseInt(menu.getPanelObra().getTxtID().getText()) );
-                daoObra.eliminarObra(obra);
-                daoObra.cargarTabla(menu.getPanelObra().getTblObras());
-                limpiar();
-                this.obra = null;
-                }catch(CamposObligatoriosException e1){
-            JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
-        }catch(TiempoMaximoException e2){
-            JOptionPane.showMessageDialog(null, "Duracion Incorrecta");
-        } catch (Exception ex)
-        {
-            JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
-        }
-            }
-            
-        
-        
-        if( this.menu.getPanelObra().getBtnLimpiar() == e.getSource()   ) { 
-            limpiar();
-            daoObra.cargarTabla(menu.getPanelObra().getTblObras());
-            this.obra = null;
-        }
-        
-        
-        
-        
+        accionarBotonAgregar(e);
+        accionarBotonModificar(e);
+        accionarBotonEliminar(e);
+        accionarBotonLimpiar(e);   
     }
     
-    public void limpiar ( ) {
-        
+    public void accionarBotonAgregar(ActionEvent e){
+        if (this.menu.getPanelObra().getBtnAgregar() == e.getSource()) {
+            try {
+                agregarObra();
+                resetearObra();
+            } catch (CamposObligatoriosException e1) {
+                JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+            } catch (TiempoMaximoException e2) {
+                JOptionPane.showMessageDialog(null, "Duracion Incorrecta");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
+            }
+        }
+    }
+    
+    public void accionarBotonModificar(ActionEvent e){
+        if (this.menu.getPanelObra().getBtnModificar() == e.getSource()) {
+            try {
+                modificarObra();
+                resetearObra();
+            } catch (CamposObligatoriosException e1) {
+                JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+            } catch (TiempoMaximoException e2) {
+                JOptionPane.showMessageDialog(null, "Duracion Incorrecta");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
+            }
+        }
+    }
+    
+    public void accionarBotonEliminar(ActionEvent e){
+        if (this.menu.getPanelObra().getBtnEliminar() == e.getSource()) {
+            try {
+                eliminarObra();
+                resetearObra();
+            } catch (CamposObligatoriosException e1) {
+                JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+            } catch (TiempoMaximoException e2) {
+                JOptionPane.showMessageDialog(null, "Duracion Incorrecta");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
+            }
+        }
+    }
+    
+    public void accionarBotonLimpiar(ActionEvent e){
+        if( this.menu.getPanelObra().getBtnLimpiar() == e.getSource()   ) { 
+            resetearObra();
+        } 
+    }
+    
+    public void agregarObra(){
+        capturarDatos(); //Capturar los datos de la ventanilla
+        daoObra.agregarObra(obra);
+    }
+    
+    public void modificarObra(){
+        capturarDatos(); //Capturar los datos de la ventanilla
+        this.obra.setID(Integer.parseInt(menu.getPanelObra().getTxtID().getText()));
+        this.daoObra.modificarObra(obra);
+    }
+    
+    public  void eliminarObra(){
+        capturarDatos(); //Capturar los datos de la ventanilla
+        this.obra.setID(Integer.parseInt(menu.getPanelObra().getTxtID().getText()));
+        this.daoObra.eliminarObra(obra);
+    }
+    
+    public void resetearObra(){
+        limpiar();
+        cargarTabla();
+        this.obra = null;
+    }
+    
+    public void limpiar ( ) {    
         menu.getPanelObra().getTxtID().setText("");
         menu.getPanelObra().getTxtNombreObra().setText("");
         menu.getPanelObra().getTxtGenero().setText("");
@@ -135,20 +134,18 @@ public class ControlObras implements ActionListener, MouseListener {
         menu.getPanelObra().getTxtDuracion().setText("");
         menu.getPanelObra().getTxtActorPrincipal().setText("");
         menu.getPanelObra().getTxtActorSecundario().setText("");
-        menu.getPanelObra().getTxtPrecioBoleto().setText("");
-        
+        menu.getPanelObra().getTxtPrecioBoleto().setText("");      
     }
     
     public void capturarDatos() throws CamposObligatoriosException, TiempoMaximoException  {
-       this.obra = new ObraTeatral();
+        this.obra = new ObraTeatral();
         this.obra.setNombreObra(menu.getPanelObra().getTxtNombreObra().getText());  
         this.obra.setGenero(menu.getPanelObra().getTxtGenero().getText());
         this.obra.setResumen(menu.getPanelObra().getTxtResumen().getText());
         this.obra.setDuracion(Integer.parseInt(menu.getPanelObra().getTxtDuracion().getText()));
         this.obra.setActorPrincipal(menu.getPanelObra().getTxtActorPrincipal().getText());
         this.obra.setActorSecundario(menu.getPanelObra().getTxtActorSecundario().getText());
-        this.obra.setPrecioBoleto(Double.parseDouble(menu.getPanelObra().getTxtPrecioBoleto().getText()));
-        
+        this.obra.setPrecioBoleto(Double.parseDouble(menu.getPanelObra().getTxtPrecioBoleto().getText()));       
     }
 
     @Override
@@ -163,6 +160,10 @@ public class ControlObras implements ActionListener, MouseListener {
         menu.getPanelObra().getTxtActorPrincipal().setText(obra.getActorPrincipal());
         menu.getPanelObra().getTxtActorSecundario().setText(obra.getActorSecundario());
         menu.getPanelObra().getTxtPrecioBoleto().setText(String.valueOf(obra.getPrecioBoleto()));
+    }
+    
+    public void cargarTabla(){
+        this.daoObra.cargarTabla(menu.getPanelObra().getTblObras());
     }
 
     @Override
