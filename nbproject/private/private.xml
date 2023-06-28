@@ -6,16 +6,15 @@
             <file>file:/C:/Users/samux/OneDrive/Documentos/POO%20PF/ProyectoFinal/src/DAO/DaoBoletos.java</file>
             <file>file:/C:/Users/samux/OneDrive/Documentos/POO%20PF/ProyectoFinal/src/DAO/DaoTicket.java</file>
         </group>
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlAsientos.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlFuncion.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/DAO/DaoFuncion.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlUsuario.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlLogin.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlVentanaPrincipal.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlAsientos.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlLogin.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/modelo/Administrador.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlFuncion.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlObras.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/test/MainPrueba.java</file>
+            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/modelo/Usuario.java</file>
         </group>
->>>>>>> b6277377d131356b1f53b4b8f1ab34e1a48cff50
     </open-files>
 </project-private>
