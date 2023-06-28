@@ -12,10 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import modelo.Boleto;
-import ventanas.Login;
-import ventanas.RegistroBoleto;
-import ventanas.Sala;
-import ventanas.VentanaPrincipal;
+import vista.Login;
+import vista.RegistroBoleto;
+import vista.Sala;
+import vista.VentanaPrincipal;
 
 /**
  *

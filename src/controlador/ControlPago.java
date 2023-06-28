@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 import modelo.Boleto;
 import modelo.Funcion;
 import modelo.Ticket;
-import ventanas.VentanaPrincipal;
+import vista.VentanaPrincipal;
 
 /**
  *
