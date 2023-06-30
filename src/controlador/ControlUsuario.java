@@ -18,132 +18,144 @@ import vista.VentanaPrincipal;
  *
  * @author josep
  */
-public class ControlUsuario implements ActionListener,  MouseListener {
-    
-    Usuario usuario = null;
+/**
+ * 
+ * Clase que controla la sección de usuarios
+ */
+public class ControlUsuario implements ActionListener, MouseListener {
+
+    Usuario usuario;
     VentanaPrincipal menu = new VentanaPrincipal();
     DaoUsuario daoUsuario = new DaoUsuario();
-
+    
+    
+/**
+ * Constructor de la clase ControlUsuario
+ * @param usuario con el que se comunicará los botones
+ * @param menu, o interfaz gráfica para las acciones
+ */
     public ControlUsuario(Usuario usuario, VentanaPrincipal menu) {
-        
+
         this.usuario = usuario;
         this.menu = menu;
-//        this.menu.setPanelUsuario(registroUsuario);
-        //Establecerle a la tabla de mi vista los datos de la tabla.
-         this.menu.getPanelUsuario().setTblUsuarios(daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios()));
-        
+
+        this.menu.getPanelUsuario().setTblUsuarios(daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios()));
+
         this.menu.getPanelUsuario().getBtnAgregar().addActionListener(this);
         this.menu.getPanelUsuario().getBtnEliminar().addActionListener(this);
         this.menu.getPanelUsuario().getBtnModificar().addActionListener(this);
         this.menu.getPanelUsuario().getBtnLimpiar().addActionListener(this);
-        //Añadir MouseListener a la tabla
+
         this.menu.getPanelUsuario().getTblUsuarios().addMouseListener(this);
     }
-    
 
+    /**
+     * Metodo que detecta el uso de botones
+     * @param evento o acción de los botones
+     */
     @Override
-    public void actionPerformed(ActionEvent evento) { 
-        
-        //Agregar Usuario
-        if( this.menu.getPanelUsuario().getBtnAgregar() == evento.getSource()    ) {  
-            try
-            {
+    public void actionPerformed(ActionEvent evento) {
+
+        if (evento.getSource() == this.menu.getPanelUsuario().getBtnAgregar()) {
+            try {
                 capturarDatos();
-                if( this.usuario != null) {
+                if (this.usuario != null) {
                     daoUsuario.agregarUsuario(usuario);
                     limpiar();
                     daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());
                     this.usuario = null;
                 }
-            
-            } catch(CamposObligatoriosException e ){
-                    JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
-            } catch(NullPointerException ex) {
+
+            } catch (CamposObligatoriosException e) {
+                JOptionPane.showMessageDialog(null, "Todos los campos son obligatorios");
+            } catch (NullPointerException ex) {
                 JOptionPane.showMessageDialog(null, "Ingrese los datos con el formato correcto");
             }
-        
+
         }
-        //Modificar Usuario
-        if( this.menu.getPanelUsuario().getBtnModificar() == evento.getSource()    ) {
-           
+        if (evento.getSource() == this.menu.getPanelUsuario().getBtnModificar()) {
+
             try {
-                  capturarDatos();
-                  usuario.setID(Integer.parseInt(menu.getPanelUsuario().getTxtID().getText()) );
+                capturarDatos();
+                usuario.setID(Integer.parseInt(menu.getPanelUsuario().getTxtID().getText()));
                 daoUsuario.modificarUsuario(usuario);
                 limpiar();
-               daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());
-               this.usuario = null;
-            } catch (Exception e) {
+                daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());
+                this.usuario = null;
+            } catch (CamposObligatoriosException | NullPointerException | NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado algún usuario");
             }
-        
+
         }
-        
-        if( this.menu.getPanelUsuario().getBtnEliminar() == evento.getSource()   ) { 
+
+        if (evento.getSource() == this.menu.getPanelUsuario().getBtnEliminar()) {
             try {
-                
+
                 capturarDatos();
-                usuario.setID(Integer.parseInt(menu.getPanelUsuario().getTxtID().getText()) );
+                usuario.setID(Integer.parseInt(menu.getPanelUsuario().getTxtID().getText()));
                 daoUsuario.eliminarUsuario(usuario);
                 limpiar();
-                daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());   
+                daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());
                 this.usuario = null;
-            } catch (Exception e) {
+            } catch (CamposObligatoriosException | NullPointerException | NumberFormatException e) {
                 JOptionPane.showMessageDialog(null, "No ha seleccionado algún usuario");
             }
-         
+
         }
-        
-        if( this.menu.getPanelUsuario().getBtnLimpiar() == evento.getSource()    ) {  
-         limpiar();  
-         daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());   
-         this.usuario = null;
+
+        if (evento.getSource() == this.menu.getPanelUsuario().getBtnLimpiar()) {
+            limpiar();
+            daoUsuario.cargarTabla(menu.getPanelUsuario().getTblUsuarios());
+            this.usuario = null;
         }
-        
-        
+
     }
     
-    
-    public void limpiar ( ) {
-        
+    /**
+     * Metodo para limpiar los campos del menú
+     */
+    public void limpiar() {
+
         menu.getPanelUsuario().getTxtNombre().setText("");
         menu.getPanelUsuario().getTxtApellido().setText("");
         menu.getPanelUsuario().getTxtCURP().setText("");
-       
+
         menu.getPanelUsuario().getTxtUsuario().setText("");
         menu.getPanelUsuario().getTxtContraseña().setText("");
 
         menu.getPanelUsuario().getBtnGr().clearSelection();
     }
     
+    /**
+     * Metodo que captura la información del usuario
+     * @throws CamposObligatoriosException en caso de que los campos no se hayan llenado en su totalidad
+     * @throws NullPointerException en caso de que el método se encuentre con apuntadores nulos
+     */
     public void capturarDatos() throws CamposObligatoriosException, NullPointerException {
-        
-        this.usuario = new Usuario();
-                this.usuario.setNombre(menu.getPanelUsuario().getTxtNombre().getText());  
-                this.usuario.setApellido(menu.getPanelUsuario().getTxtApellido().getText());
-                this.usuario.setCURP(menu.getPanelUsuario().getTxtCURP().getText());
-        
-            if (menu.getPanelUsuario().getRbAdmin().isSelected() == true)
-            {
-                 this.usuario.setRol("Administrador");
-            } else if (menu.getPanelUsuario().getRbVendedor().isSelected() == true)
-            {
-                  this.usuario.setRol("Vendedor");
-            } else
-            {
-                 this.usuario.setRol("Vendedor");
-            }
-        
-                this.usuario.setUsuario(  menu.getPanelUsuario().getTxtUsuario().getText() );
-                this.usuario.setContraseña(menu.getPanelUsuario().getTxtContraseña().getText() );
-            
-        
-    }
-    
 
-    //Crear la accion de click en mi tabla, funcion de MouseListener para mi tabla
+        this.usuario = new Usuario();
+        this.usuario.setNombre(menu.getPanelUsuario().getTxtNombre().getText());
+        this.usuario.setApellido(menu.getPanelUsuario().getTxtApellido().getText());
+        this.usuario.setCURP(menu.getPanelUsuario().getTxtCURP().getText());
+
+        if (menu.getPanelUsuario().getRbAdmin().isSelected() == true) {
+            this.usuario.setRol("Administrador");
+        } else if (menu.getPanelUsuario().getRbVendedor().isSelected() == true) {
+            this.usuario.setRol("Vendedor");
+        } else {
+            this.usuario.setRol("Vendedor");
+        }
+
+        this.usuario.setUsuario(menu.getPanelUsuario().getTxtUsuario().getText());
+        this.usuario.setContraseña(menu.getPanelUsuario().getTxtContraseña().getText());
+
+    }
+    /**
+     * Método que detecta los datos seleccionados y los muestra en pantalla
+     * @param event detección de puntero accionado
+     */
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent event) {
         this.usuario = daoUsuario.regresarDatosEnCasillas(menu.getPanelUsuario().getTblUsuarios());
         menu.getPanelUsuario().getTxtID().setText(String.valueOf(usuario.getID()));
         menu.getPanelUsuario().getTxtNombre().setText(usuario.getNombre());
@@ -151,40 +163,31 @@ public class ControlUsuario implements ActionListener,  MouseListener {
         menu.getPanelUsuario().getTxtCURP().setText(usuario.getCURP());
         menu.getPanelUsuario().getTxtUsuario().setText(usuario.getUsuario());
         menu.getPanelUsuario().getTxtContraseña().setText(usuario.getContraseña());
-        
-        if(usuario.getRol().equals("Administrador")) {
-                   menu.getPanelUsuario().getRbAdmin().setSelected(true);
-               } else if (usuario.getRol().equals("Vendedor")) {
-                   menu.getPanelUsuario().getRbVendedor().setSelected(true);
-               }
+
+        if (usuario.getRol().equals("Administrador")) {
+            menu.getPanelUsuario().getRbAdmin().setSelected(true);
+        } else if (usuario.getRol().equals("Vendedor")) {
+            menu.getPanelUsuario().getRbVendedor().setSelected(true);
+        }
     }
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
     @Override
     public void mousePressed(MouseEvent e) {
-       
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-       
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-      
+
     }
 }
