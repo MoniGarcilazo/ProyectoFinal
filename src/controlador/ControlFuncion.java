@@ -19,7 +19,7 @@ import vista.VentanaPrincipal;
 
 /**
  *
- * @author josep
+ * @author MonicaGarcilazo
  */
 public class ControlFuncion implements ActionListener, MouseListener{
 
@@ -28,6 +28,11 @@ public class ControlFuncion implements ActionListener, MouseListener{
     DaoFuncion daoFuncion = new DaoFuncion();
     DaoAsientos daoAsientos = new DaoAsientos();
 
+    /**
+     * Constructor de la clase
+     * @param funcion Funcion con la que se va a trabajar
+     * @param menu Ventana Principal menu
+     **/
     public ControlFuncion(Funcion funcion, VentanaPrincipal menu) {
         
         this.funcion = funcion;
@@ -42,18 +47,30 @@ public class ControlFuncion implements ActionListener, MouseListener{
         this.menu.getPanelFuncion().getTblFunciones().addMouseListener(this);
     }
     
-    
-    
+    /**
+     * Realiza las acciones programadas según el evento
+     **/
     @Override
     public void actionPerformed(ActionEvent e){
-        agregarFuncion(e);
-        modificarFuncion(e);
-        eliminarFuncion(e);
+        boolean accionarBotonAgregar = this.menu.getPanelFuncion().getBtnAgregar() == e.getSource();
+        boolean accionarBotonModificar = this.menu.getPanelFuncion().getBtnModificar()== e.getSource(); 
+        boolean accionarBotonEliminar = this.menu.getPanelFuncion().getBtnEliminar() == e.getSource();
+        
+        if (accionarBotonAgregar) {
+             agregarFuncion();
+        }
+        if (accionarBotonModificar ) {
+            modificarFuncion();
+        }
+        if(accionarBotonEliminar) {
+            eliminarFuncion();
+        }
     }
     
-    public void agregarFuncion(ActionEvent e){
-        //Agregar Funcion
-        if ( this.menu.getPanelFuncion().getBtnAgregar() == e.getSource()) {
+    /**
+     * Agrega una funcion a la base de datos
+     **/
+    public void agregarFuncion(){
             capturarDatos();
             if( funcion != null ) {
                  int numFunciones = daoFuncion.verificarFuncionesPorDia(funcion);      
@@ -74,13 +91,14 @@ public class ControlFuncion implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "Registro sin éxito, se han pasado los limites de registros de dicha fecha");
                         }
             }
-        }
+        
     }
     
-    public void modificarFuncion(ActionEvent e){
-        if (this.menu.getPanelFuncion().getBtnModificar()== e.getSource() ) {
+    /**
+     * Modifica la funcion seleccionada
+    **/
+    public void modificarFuncion(){
              capturarDatos();
-             
                 if( funcion != null ) {
                     
                      int numHorarios = daoFuncion.verificarHorariosFunciones(funcion);
@@ -96,11 +114,14 @@ public class ControlFuncion implements ActionListener, MouseListener{
                     JOptionPane.showMessageDialog(null, "No ha seleccionado alguna funcion");
                 }
              
-        }
+        
     }
     
-    public void eliminarFuncion(ActionEvent e){
-        if(this.menu.getPanelFuncion().getBtnEliminar() == e.getSource()) {
+    /**
+     * Modifica la funcion seleccionada
+    **/
+    
+    public void eliminarFuncion(){
             capturarDatos();
             if( funcion != null ) { 
                 this.funcion.setID(Integer.parseInt(menu.getPanelFuncion().getTxtID().getText()));
@@ -112,9 +133,12 @@ public class ControlFuncion implements ActionListener, MouseListener{
                  JOptionPane.showMessageDialog(null, "No ha seleccionado alguna funcion");
             }
             
-        }
+        
     }
     
+    /**
+     * Captura los datos de la vetana y crea una funcion con esos datos
+    **/
     public void capturarDatos() {
         
         try
@@ -145,7 +169,9 @@ public class ControlFuncion implements ActionListener, MouseListener{
         
     }
     
-
+    /**
+     * Se invoca cuando se presiona y se suelta la tecla del mouse
+    **/
     @Override
     public void mouseClicked(MouseEvent e) {
         this.funcion = daoFuncion.regresarDatosEnCasillas(menu.getPanelFuncion().getTblFunciones());

@@ -22,14 +22,18 @@ import modelo.ObraTeatral;
 
 /**
  *
- * @author José Puc
+ * @author Monica Garcilazo
  */
 public class DaoFuncion {
 
     public DaoFuncion() {
     }
     
-    //I nsertar Funcion en DataBase
+    /**
+     * Inserta funcion a la base de datos
+     * @param funcion Funcion que se desea agregar
+     * @return id de la nueva funcion
+     **/
     public int agregarFuncion ( Funcion funcion) {
         int idNuevaFuncion = 0;
         
@@ -60,6 +64,10 @@ public class DaoFuncion {
         return idNuevaFuncion;
     }
     
+    /**
+     * Modificar una funcion ya existente en la base de datos
+     * @param funcion Funcion con nuevos datos
+     **/
     public void modificarFuncion ( Funcion funcion) {
         
         try
@@ -82,6 +90,11 @@ public class DaoFuncion {
         
     }
     
+    /**
+     * Elimina una funcion de la base de datos
+     * @param funcion Funcion a eliminar
+     * @return ID de la funcion eliminada
+     **/
     public int eliminarFuncion(Funcion funcion) {
         
          try
@@ -101,6 +114,11 @@ public class DaoFuncion {
          return funcion.getID();
     }
     
+    /**
+     * Verifica el numero de funciones que hay en un día desde la base de datos
+     * @param funcion Funcion 
+     * @return Numero de funciones en un dia
+     **/
     public int verificarFuncionesPorDia ( Funcion funcion) {
         ArrayList<java.sql.Date> fechas = new ArrayList<java.sql.Date>();
         
@@ -128,6 +146,11 @@ public class DaoFuncion {
         return contador;
     }
     
+    /**
+     * Verifica los horarios de las Funciones desde la base de datos
+     * @param funcion
+     * @return Numero de horarios 
+     **/
     public int verificarHorariosFunciones ( Funcion funcion) {
         ArrayList<java.sql.Date> horarios = new ArrayList<java.sql.Date>();
         PreparedStatement ps;
@@ -158,6 +181,11 @@ public class DaoFuncion {
     }
     
      //Cargar los datos en la tabla Funciones
+    /**
+     *  Carga los datos en la tabal de Funciones a la base de datos
+     * @param tblFuncion tabla con los datos de funciones
+     * @return tabla de funciones
+     **/
     public JTable cargarTabla(JTable tblFuncion) {
         DefaultTableModel modeloTabla = (DefaultTableModel) tblFuncion.getModel();
         modeloTabla.setRowCount(0);
@@ -208,7 +236,11 @@ public class DaoFuncion {
     }
     
     
-    //Cargar las obras en el ComboBox
+    /**
+     * Cargar las obras en el ComboBox
+     * @param comboBox comboBox al que se le asignaran los datos
+     * @return comboBox con los datos asignados
+     **/
     public JComboBox cargarComboBox(JComboBox comboBox) {
         DefaultComboBoxModel modeloCombo = (DefaultComboBoxModel) comboBox.getModel();
         comboBox.setModel(modeloCombo);
@@ -241,6 +273,11 @@ public class DaoFuncion {
         return comboBox;
     }
     
+    /**
+     * Regresa los datos de la funcion a las casillas
+     * @param tblFunciones Tabla a modificar
+     * @return Funcion que se regresa
+     **/
     public Funcion regresarDatosEnCasillas( JTable tblFunciones) {
         Funcion funcion = new Funcion();
         
