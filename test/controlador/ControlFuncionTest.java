@@ -8,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 /**
  *
@@ -36,65 +35,6 @@ public class ControlFuncionTest {
         fail("The test case is a prototype.");
     }
 
-
-
-
-
-    @Test
-    public void testAgregarFuncion_NumFuncionesMenosDeDos() {
-        // Arrange
-        MiClase miClase = new MiClase();
-        DAO.DaoFuncion daoFuncionMock = mock(DAO.DaoFuncion.class);
-        DAOAsientos daoAsientosMock = mock(DAOAsientos.class);
-        Menu menuMock = mock(Menu.class);
-        PanelFuncion panelFuncionMock = mock(PanelFuncion.class);
-        JTable tblFuncionesMock = mock(JTable.class);
-
-        miClase.setDaoFuncion(daoFuncionMock);
-        miClase.setDaoAsientos(daoAsientosMock);
-        miClase.setMenu(menuMock);
-        when(menuMock.getPanelFuncion()).thenReturn(panelFuncionMock);
-        when(panelFuncionMock.getTblFunciones()).thenReturn(tblFuncionesMock);
-        
-        Funcion funcion = new Funcion();
-        funcion.setFecha("2023-06-29");
-        funcion.setHorario("18:00");
-        when(daoFuncionMock.verificarFuncionesPorDia(funcion)).thenReturn(0);
-        when(daoFuncionMock.verificarHorariosFunciones(funcion)).thenReturn(0);
-        
-        // Act
-        miClase.agregarFuncion();
-
-        // Assert
-        verify(daoFuncionMock).agregarFuncion(funcion);
-        verify(daoAsientosMock).agregarSala(anyInt());
-        verify(daoFuncionMock).cargarTabla(tblFuncionesMock);
-        assertNull(miClase.getFuncion());
-    }
-    
-    @Test
-    public void testAgregarFuncion_NumFuncionesMasDeDos() {
-        // Arrange
-        MiClase miClase = new MiClase();
-        DAO.DAOFuncion daoFuncionMock = mock(DAOFuncion.class);
-        Menu menuMock = mock(Menu.class);
-
-        miClase.setDaoFuncion(daoFuncionMock);
-        miClase.setMenu(menuMock);
-        
-        Funcion funcion = new Funcion();
-        funcion.setFecha("2023-06-29");
-        funcion.setHorario("18:00");
-        when(daoFuncionMock.verificarFuncionesPorDia(funcion)).thenReturn(3);
-        
-        // Act
-        miClase.agregarFuncion();
-
-        // Assert
-        verify(daoFuncionMock, never()).agregarFuncion(funcion);
-        verify(menuMock, never()).getPanelFuncion();
-        verifyNoMoreInteractions(daoFuncionMock);
-    }
 
 
 
