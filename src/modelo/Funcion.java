@@ -8,7 +8,7 @@ import java.sql.Time;
 
 /**
  *
- * @author josep
+ * @author Monica Garcilazo
  */
 public class Funcion {
     
@@ -23,7 +23,7 @@ public class Funcion {
 
     public Funcion() {
     }
-
+    
     public Funcion(int ID, ObraTeatral obra, java.sql.Date fechaDePresentacion, Time hora) {
         this.ID = ID;
         this.obra = obra;

@@ -159,6 +159,15 @@ public class ControlUsuario implements ActionListener,  MouseListener {
                }
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @Override
     public void mousePressed(MouseEvent e) {
        
