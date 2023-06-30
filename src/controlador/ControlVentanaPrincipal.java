@@ -18,8 +18,7 @@ import vista.Sala;
 import vista.VentanaPrincipal;
 
 /**
- *
- * @author josep
+ *Clase que controla la ventana principal
  */
 public class ControlVentanaPrincipal implements ActionListener {
     
@@ -28,6 +27,10 @@ public class ControlVentanaPrincipal implements ActionListener {
     DaoObras daoObra = new DaoObras();
     DaoVentaBoleto daoVentaBoleto = new DaoVentaBoleto();
 
+    /**
+     * Método constructor de la clase ControlVentanaPrincipal, este le asigna a los bonotes de los paneles el ActionListener
+     * @param menu Ventana principal requerida para todas las acciones 
+     **/
     public ControlVentanaPrincipal( VentanaPrincipal menu ) {
         
         this.menu = menu;
@@ -50,93 +53,119 @@ public class ControlVentanaPrincipal implements ActionListener {
 
     
     
-    
+    /**
+     * Método que detecta las pulsaciones de los botones 
+     * @param e ActionEvent requerida para todas las acciones  
+     **/
     @Override
     public void actionPerformed(ActionEvent e) {      
-        accionarBotonUsuarios(e);        
-        accionarBotonObra(e);
-        accionarBotonFuncion(e);       
-        accionarBotonBoleto(e);        
-        accionarBotonPago(e);       
-        accionarBotonReporte(e);
-        accionarBotonSalir(e);        
-        accionarBotonDeslogear(e);
-    }
-    
-    public void accionarBotonUsuarios(ActionEvent e){
-        if (this.menu.getMenuUsuario() == e.getSource() ) {
-            asignarPosicionVentana(this.menu.getPanelUsuario());
-            mostrarNuevaVentana(this.menu.getPanelUsuario());
-        }  
-    }
-    
-    public void accionarBotonObra(ActionEvent e){
-        if (this.menu.getMenuObra()== e.getSource() ) {
-            asignarPosicionVentana(this.menu.getPanelObra());
-            mostrarNuevaVentana(this.menu.getPanelObra());          
-            //RESETEAR LA TABLA DE LAS OBRAS
-            this.menu.getPanelObra().setTblObras(daoObra.cargarTabla(menu.getPanelObra().getTblObras()));
+        boolean accionarBotonUsuario = this.menu.getMenuUsuario() == e.getSource() ;
+        boolean accionarBotonObra = this.menu.getMenuObra()== e.getSource() ;
+        boolean accionarBotonFuncion = this.menu.getMenuFuncion()== e.getSource();
+        boolean accionarBotonBoleto = this.menu.getMenuBoleto() == e.getSource();
+        boolean accionarBotonPago =  this.menu.getMenuPago() == e.getSource();
+        boolean accionarBotonReporte = this.menu.getMenuReporte() == e.getSource();
+        boolean accionarBotonSalir = this.menu.getBtnSalir() == e.getSource();
+        boolean accionarBotonDesLoguear =  this.menu.getBtnLogOut() == e.getSource();
+        
+        if (accionarBotonUsuario) {
+            accionarBotonUsuarios();        
         }
-    }
-    
-    public void accionarBotonFuncion(ActionEvent e){
-        if (this.menu.getMenuFuncion()== e.getSource() ) {
-            asignarPosicionVentana(this.menu.getPanelFuncion());
-            mostrarNuevaVentana(this.menu.getPanelFuncion());
-            
-            //RESETEAR EL COMBOBOX DE LAS OBRAS EN EL PANEL DE FUNCIONES   
-            menu.getPanelFuncion().getComboBoxObras().removeAllItems();
-            menu.getPanelFuncion().setComboBoxObras(daoFuncion.cargarComboBox(menu.getPanelFuncion().getComboBoxObras()));
-            
-            //RESETEAR LA TABLA DE LAS FUNCIONES
-            daoFuncion.cargarTabla(menu.getPanelFuncion().getTblFunciones());
+        if (accionarBotonObra) {
+            accionarBotonObra();
         }
-    }
-    
-    public void accionarBotonBoleto(ActionEvent e){
-        if( this.menu.getMenuBoleto() == e.getSource()) {
-            
-            crearPanelBoleto();
-            asignarPosicionVentana(this.menu.getPanelBoleto());           
-            mostrarNuevaVentana(this.menu.getPanelBoleto());
-            // Borrar los botones de la sala cada vez que se desee volver a registrar una funcion
-            Sala sala = new Sala();
-            this.menu.setSala(sala);
-            borrarTextoControlPago();
-            Boleto boleto = new Boleto();
-            ControlVentaBoleto controlVentaBoleto = new ControlVentaBoleto(boleto, this.menu);      
+        if (accionarBotonFuncion) {
+            accionarBotonFuncion();       
         }
-    }
-    
-    public void accionarBotonPago(ActionEvent e){
-        if ( this.menu.getMenuPago() == e.getSource()) {
-            asignarPosicionVentana(this.menu.getPanelPago());
-            mostrarNuevaVentana(this.menu.getPanelPago());
+        if(accionarBotonBoleto) {
+            accionarBotonBoleto();   
         }
-    }
-    
-    public void accionarBotonReporte(ActionEvent e){
-        if ( this.menu.getMenuReporte() == e.getSource()) {
-            asignarPosicionVentana(this.menu.getPanelReportes());           
-            mostrarNuevaVentana(this.menu.getPanelReportes());        
+        if (accionarBotonPago) {
+            accionarBotonPago();       
         }
-    }
-    
-    public void accionarBotonSalir(ActionEvent e){
-       if( this.menu.getBtnSalir() == e.getSource()) { //Presionar boton cerrar programa
-            System.exit(0);
-        } 
-    }
-    
-    public void accionarBotonDeslogear(ActionEvent e){
-        if ( this.menu.getBtnLogOut() == e.getSource()) {
-            Login login = new Login();
-            ControlLogin controlLogin = new ControlLogin(login);
-            login.setVisible(true);
-            this.menu.dispose();
+        if (accionarBotonReporte) {
+            accionarBotonReporte();
         }
+         if(accionarBotonSalir) {
+             System.exit(0);
+         }     
+         if (accionarBotonDesLoguear) {
+            accionarBotonDeslogear();
+         }
     }
     
+    /**
+     * Método que muestra la ventana Usuarios  
+     **/
+    public void accionarBotonUsuarios() {
+        asignarPosicionVentana(this.menu.getPanelUsuario());
+        mostrarNuevaVentana(this.menu.getPanelUsuario());
+    }
+    
+    /**
+     * Método que muestra la ventana Obras 
+     **/
+    public void accionarBotonObra() {
+        asignarPosicionVentana(this.menu.getPanelObra());
+        mostrarNuevaVentana(this.menu.getPanelObra());
+        this.menu.getPanelObra().setTblObras(daoObra.cargarTabla(menu.getPanelObra().getTblObras()));
+    }
+
+    /**
+     * Método que muestra la ventana Funciones  
+     **/
+    public void accionarBotonFuncion() {
+        asignarPosicionVentana(this.menu.getPanelFuncion());
+        mostrarNuevaVentana(this.menu.getPanelFuncion());
+        menu.getPanelFuncion().getComboBoxObras().removeAllItems();
+        menu.getPanelFuncion().setComboBoxObras(daoFuncion.cargarComboBox(menu.getPanelFuncion().getComboBoxObras()));
+        daoFuncion.cargarTabla(menu.getPanelFuncion().getTblFunciones());
+    }
+
+    /**
+     * Método que muestra la ventana Boleto 
+     **/
+    public void accionarBotonBoleto() {
+        crearPanelBoleto();
+        asignarPosicionVentana(this.menu.getPanelBoleto());
+        mostrarNuevaVentana(this.menu.getPanelBoleto());
+        // Borrar los botones de la sala cada vez que se desee volver a registrar una funcion
+        Sala sala = new Sala();
+        this.menu.setSala(sala);
+        borrarTextoControlPago();
+        Boleto boleto = new Boleto();
+        ControlVentaBoleto controlVentaBoleto = new ControlVentaBoleto(boleto, this.menu);
+    }
+
+    /**
+     * Método que muestra la ventana Pago 
+     **/
+    public void accionarBotonPago() {
+        asignarPosicionVentana(this.menu.getPanelPago());
+        mostrarNuevaVentana(this.menu.getPanelPago());
+    }
+
+    /**
+     * Método que muestra la ventana Reportes 
+     **/
+    public void accionarBotonReporte() {
+        asignarPosicionVentana(this.menu.getPanelReportes());
+        mostrarNuevaVentana(this.menu.getPanelReportes());
+    }
+
+    /**
+     * Método que regresa a la ventana Login 
+     **/
+    public void accionarBotonDeslogear() {
+        Login login = new Login();
+        ControlLogin controlLogin = new ControlLogin(login);
+        login.setVisible(true);
+        this.menu.dispose();
+    }
+
+    /**
+     * Método que resetea todos los textos de la ventana Pago
+     **/
     public void borrarTextoControlPago(){
         // BORRAR el texto del control de pago
         menu.getPanelPago().getTxtAreaBoletos().setText("");
@@ -144,17 +173,28 @@ public class ControlVentanaPrincipal implements ActionListener {
         menu.getPanelPago().getTxtCambio().setText("");
         menu.getPanelPago().getTxtEfectivoRecibido().setText("");
     }
-    
+
+    /**
+     * Método que asigna las coordenadas a la ventana a mostrar
+     * @param ventana Jpanel el cual se va a mostrar en pantalla
+     **/
     public void asignarPosicionVentana(JPanel ventana){
         ventana.setSize(1460, 720);
         ventana.setLocation(0, 0);
     }
-    
+
+    /**
+     * Método que instancia la ventana Boleto
+     **/
     public void crearPanelBoleto(){
         RegistroBoleto panelBoleto = new RegistroBoleto();
         this.menu.setPanelBoleto(panelBoleto);
     }
-    
+
+    /**
+     * Método remueve a la ventana anterior
+     * @param ventana Jpanel el cual se va a quitar de la pantalla
+     **/
     public void mostrarNuevaVentana(JPanel ventana){
         this.menu.getPanelContenido().removeAll();
         this.menu.getPanelContenido().add(ventana, BorderLayout.CENTER);

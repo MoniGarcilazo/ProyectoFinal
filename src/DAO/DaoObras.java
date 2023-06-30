@@ -4,6 +4,9 @@
  */
 package DAO;
 
+/**
+ *Clase que controla la ventana Obras
+ */
 import SQL.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,14 +19,20 @@ import javax.swing.table.DefaultTableModel;
 import modelo.ObraTeatral;
 
 /**
- *
- * @author josep
+ *Clase que realiza las consultas a la base de datos relacionado con las obras
  */
 public class DaoObras {
 
+    /**
+     * Método constructor de la clase DaoObras
+     **/
     public DaoObras() {
     }
     
+    /**
+     * Método que realiza la consulta para agregar una obra a la base de datos  
+     * @param obra Obra Teatral que se quiere agregar a la base de datos
+     **/
     public void agregarObra ( ObraTeatral obra) {
        
          try
@@ -51,6 +60,10 @@ public class DaoObras {
          
     }
     
+    /**
+     * Método que realiza la consulta para modificar una obra de la base de datos  
+     * @param obra Obra Teatral que se quiere modificar de la base de datos
+     **/
     public void modificarObra( ObraTeatral obra) {
        
        try
@@ -77,8 +90,12 @@ public class DaoObras {
         {
             JOptionPane.showMessageDialog(null, "Registro No Modificado");
         }
-   }
+    }
     
+    /**
+     * Método que realiza la consulta para eliminar una obra de la base de datos  
+     * @param obra Obra Teatral que se quiere eliminar de la base de datos
+     **/
     public void eliminarObra( ObraTeatral obra) {
         try
         {
@@ -99,7 +116,11 @@ public class DaoObras {
         
     }
     
-    //Cargar los datos en la tabla Usuarios
+    /**
+    * Método que realiza la consulta para modificar una obra de la base de datos  
+    * @param tblObras Tabla que muestra el contenido de las obras
+    * @return JTable Tabla que muestra todas las obras de la base de datos
+    **/
     public JTable cargarTabla(JTable tblObras) {
         DefaultTableModel modeloTabla = (DefaultTableModel) tblObras.getModel();
         modeloTabla.setRowCount(0);
@@ -149,7 +170,11 @@ public class DaoObras {
         return tblObras;
     }
     
-    //Cuando se le de click a una fila de la tabla, los datos se regresan a los txtLabel's 
+    /**
+     * Método que regresa los datos de la obra a la que se quiere mostrar en los textos de la ventana 
+     * @param tblObra Tabla que muestra el contenido de las obras
+     * @return ObraTeatral obra que se quiere mostrar en los textos de la ventana
+     **/
     public ObraTeatral regresarDatosEnCasillas( JTable tblObra) {
         ObraTeatral obra = new ObraTeatral();
         try

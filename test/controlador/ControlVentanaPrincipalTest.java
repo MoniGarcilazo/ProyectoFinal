@@ -4,7 +4,6 @@
  */
 package controlador;
 
-import DAO.DaoObras;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import org.junit.Test;
@@ -19,15 +18,13 @@ import vista.VentanaPrincipal;
 public class ControlVentanaPrincipalTest {
     private VentanaPrincipal menu;
     private ControlVentanaPrincipal controlMenu;
-    private DaoObras daoObra;
     
     public ControlVentanaPrincipalTest() {
     }
-     @Before
-     public void setup() {
+    @Before
+    public void setup() {
         // Inicializar el objeto Menu para la prueba
         menu = new VentanaPrincipal();
-        daoObra = new DaoObras();
         controlMenu = new ControlVentanaPrincipal(menu);
     }
      
@@ -105,6 +102,11 @@ public class ControlVentanaPrincipalTest {
    
     @Test
     public void testBorrarTextoControlPago() {
+        menu.getPanelPago().getTxtAreaBoletos().setText("h");
+        menu.getPanelPago().getTxtAreaTicket().setText("h");
+        menu.getPanelPago().getTxtCambio().setText("h");
+        menu.getPanelPago().getTxtEfectivoRecibido().setText("h");
+        
         String resultadoEsperado = "";
         controlMenu.borrarTextoControlPago();
         assertEquals(resultadoEsperado,  menu.getPanelPago().getTxtAreaBoletos().getText());
@@ -112,5 +114,17 @@ public class ControlVentanaPrincipalTest {
         assertEquals(resultadoEsperado,  menu.getPanelPago().getTxtCambio().getText());
         assertEquals(resultadoEsperado,  menu.getPanelPago().getTxtEfectivoRecibido().getText());
     }
+    
+    @Test
+    public void testAsignarPosicionVentana() {
+        JPanel ventana = new JPanel();
+        controlMenu.asignarPosicionVentana(ventana);
+        assertEquals(1460,  ventana.getWidth());
+        assertEquals(720,  ventana.getHeight());
+        assertEquals(0,  ventana.getLocation().x);
+        assertEquals(0,  ventana.getLocation().y);
+    }
+    
+
     
 }
