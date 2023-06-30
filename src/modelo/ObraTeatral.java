@@ -8,8 +8,7 @@ import Exceptions.CamposObligatoriosException;
 import Exceptions.TiempoMaximoException;
 
 /**
- *
- * @author josep
+ *Clase que simula una obra de teatro
  */
 public class ObraTeatral {
     
