@@ -7,14 +7,20 @@
             <file>file:/C:/Users/samux/OneDrive/Documentos/POO%20PF/ProyectoFinal/src/DAO/DaoTicket.java</file>
         </group>
         <group>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlVentanaPrincipal.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlAsientos.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlLogin.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/modelo/Administrador.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlFuncion.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/controlador/ControlObras.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/test/MainPrueba.java</file>
-            <file>file:/D:/Documentos/Documentos%20Facultad/Documentos%20del%20Semestre/Quinto%20Semestre/Construcción%20de%20Software/Proyecto%20Finl/ProyectoFinal/src/modelo/Usuario.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlLogin.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlVentanaPrincipal.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlVentaBoleto.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/vista/RegistroObra.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlReporte.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoObras.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/test/controlador/ControlVentanaPrincipalTest.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/test/MainPrueba.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlObras.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoVentaBoleto.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/modelo/ObraTeatral.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlFuncion.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoReporte.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlAsientos.java</file>
         </group>
     </open-files>
 </project-private>
