@@ -21,7 +21,6 @@ public class Usuario {
     private String rol;
     private String usuario;
 
-    // CONSTRUCTORES
     public Usuario() {
     }
     
@@ -63,7 +62,6 @@ public class Usuario {
         this.rol = rol;
     }
 
-    // SETTER'S AND GETTER'S
     
     public String getNombre() {
         return nombre;

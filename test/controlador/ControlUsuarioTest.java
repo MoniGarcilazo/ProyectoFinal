@@ -6,6 +6,7 @@ package controlador;
 
 import DAO.DaoUsuario;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseEvent;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -33,19 +34,29 @@ public class ControlUsuarioTest {
         controlMenu = new ControlVentanaPrincipal(menu);
     }
     
-    @Test
-    public void hello(){
-        System.out.println("Test");
-    }
     
     @Test
-    public void testActionPerformed() {
+    public void testActionPerformed(ActionEvent event) {
         System.out.println("actionPerformed");
-        ActionEvent e = null;
         ControlVentanaPrincipal instance = null;
-        instance.actionPerformed(e);
+        instance.actionPerformed(event);
         fail("Prototipo");
     }
     
+    @Test
+    public void testCapturarDatos(){
+        System.out.println("capturarDatos");
+        ControlUsuario instance = null;
+        instance.capturarDatos();
+        fail("Prototipo");
+    }
+    
+    @Test
+    public void testMouseClicked(MouseEvent event){
+        System.out.println("mouseClicked");
+        ControlFuncion instance = null;
+        instance.mouseClicked(event);
+        fail("Prototipo");
+    }
     
 }

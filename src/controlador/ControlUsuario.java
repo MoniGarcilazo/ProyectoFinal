@@ -18,12 +18,22 @@ import vista.VentanaPrincipal;
  *
  * @author josep
  */
+/**
+ * 
+ * Clase que controla la sección de usuarios
+ */
 public class ControlUsuario implements ActionListener, MouseListener {
 
     Usuario usuario;
     VentanaPrincipal menu = new VentanaPrincipal();
     DaoUsuario daoUsuario = new DaoUsuario();
-
+    
+    
+/**
+ * Constructor de la clase ControlUsuario
+ * @param usuario con el que se comunicará los botones
+ * @param menu, o interfaz gráfica para las acciones
+ */
     public ControlUsuario(Usuario usuario, VentanaPrincipal menu) {
 
         this.usuario = usuario;
@@ -39,6 +49,10 @@ public class ControlUsuario implements ActionListener, MouseListener {
         this.menu.getPanelUsuario().getTblUsuarios().addMouseListener(this);
     }
 
+    /**
+     * Metodo que detecta el uso de botones
+     * @param evento o acción de los botones
+     */
     @Override
     public void actionPerformed(ActionEvent evento) {
 
@@ -96,7 +110,10 @@ public class ControlUsuario implements ActionListener, MouseListener {
         }
 
     }
-
+    
+    /**
+     * Metodo para limpiar los campos del menú
+     */
     public void limpiar() {
 
         menu.getPanelUsuario().getTxtNombre().setText("");
@@ -108,7 +125,12 @@ public class ControlUsuario implements ActionListener, MouseListener {
 
         menu.getPanelUsuario().getBtnGr().clearSelection();
     }
-
+    
+    /**
+     * Metodo que captura la información del usuario
+     * @throws CamposObligatoriosException en caso de que los campos no se hayan llenado en su totalidad
+     * @throws NullPointerException en caso de que el método se encuentre con apuntadores nulos
+     */
     public void capturarDatos() throws CamposObligatoriosException, NullPointerException {
 
         this.usuario = new Usuario();
@@ -128,9 +150,12 @@ public class ControlUsuario implements ActionListener, MouseListener {
         this.usuario.setContraseña(menu.getPanelUsuario().getTxtContraseña().getText());
 
     }
-
+    /**
+     * Método que detecta los datos seleccionados y los muestra en pantalla
+     * @param event detección de puntero accionado
+     */
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent event) {
         this.usuario = daoUsuario.regresarDatosEnCasillas(menu.getPanelUsuario().getTblUsuarios());
         menu.getPanelUsuario().getTxtID().setText(String.valueOf(usuario.getID()));
         menu.getPanelUsuario().getTxtNombre().setText(usuario.getNombre());

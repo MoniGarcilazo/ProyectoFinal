@@ -5,6 +5,7 @@
 package DAO;
 
 import SQL.ConexionBD;
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,19 +20,28 @@ import modelo.Usuario;
  *
  * @author josep
  */
+
+/**
+ * Clase que realiza consultas a la base de datos relacionado con los usuarios
+ */
 public class DaoUsuario {
     
-
+    /**
+     * Constructor de DaoUsuario
+     */
     public DaoUsuario() {
        
     }
-    
+    /**
+     * Metodo que realiza la consulta al agregar un usuario a la base de datos
+     * @param usuario a agregar a la base de datos 
+     */
     public void agregarUsuario ( Usuario usuario) {
        
          try
         {
 
-            Connection conexion = ConexionBD.getConnection(); //Me conecto con base de datos
+            Connection conexion = ConexionBD.getConnection();
             PreparedStatement ps = conexion.prepareStatement("INSERT INTO usuarios (nombre, apellido, curp, rol, usuario, contrasenia, activo) VALUES (?,?,?,?,?,?,?) ");
 
             ps.setString(1, usuario.getNombre());
@@ -47,13 +57,17 @@ public class DaoUsuario {
             JOptionPane.showMessageDialog(null, "Registro Guardado");
             //Limpiar cada registro despues de ser guardado
 
-        } catch (Exception e)
+        } catch (HeadlessException | SQLException e)
         {
             JOptionPane.showMessageDialog(null, "Registro No Guardado");
         }
          
     }
-
+    
+    /**
+     * Método que realiza la consulta para modificar usuario existente en la base de datos
+     * @param usuario a modificar en la base de datos
+     */
     public void modificarUsuario( Usuario usuario) {
        
        try
@@ -75,12 +89,15 @@ public class DaoUsuario {
             //Limpiar cada registro despues de ser guardado
             
 
-        } catch (Exception e)
+        } catch (HeadlessException | SQLException e)
         {
             JOptionPane.showMessageDialog(null, "Registro No Modificado");
         }
    }
-    
+    /**
+     * Metodo para eliminar un usuario existente en la base de datos
+     * @param usuario a eliminar de la base de datos
+     */
     public void eliminarUsuario( Usuario usuario) {
         try
         {
@@ -94,14 +111,17 @@ public class DaoUsuario {
             //Limpiar cada registro despues de ser guardado
             
 
-        } catch (Exception e)
+        } catch (HeadlessException | SQLException e)
         {
             JOptionPane.showMessageDialog(null, e.toString());
         }
         
     }
-    
-    //Cuando se le de click a una fila de la tabla, los datos se regresan a los txtLabel's
+    /**
+     * Método que retorna los datos de usuarios en casillas
+     * @param tblUsuarios Tabla que muestra el usuario en cuestión
+     * @return usuario que se mostrará en ventana
+     */
     public Usuario regresarDatosEnCasillas( JTable tblUsuarios) {
         Usuario usuario = new Usuario();
         try
@@ -139,7 +159,11 @@ public class DaoUsuario {
         return usuario;
     }
     
-    //Cargar los datos en la tabla Usuarios
+    /**
+     * Método que toma la tabla dee usuarios y la carga a la base de datos
+     * @param tblUsuarios que será eventualmente cargada
+     * @return tabla de usuarios cargada
+     */
     public JTable cargarTabla(JTable tblUsuarios) {
         DefaultTableModel modeloTabla = (DefaultTableModel) tblUsuarios.getModel();
         modeloTabla.setRowCount(0);
