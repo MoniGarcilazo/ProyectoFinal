@@ -2,11 +2,8 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group name="PF">
-            <file>file:/C:/Users/samux/OneDrive/Documentos/POO%20PF/ProyectoFinal/src/DAO/DaoBoletos.java</file>
-            <file>file:/C:/Users/samux/OneDrive/Documentos/POO%20PF/ProyectoFinal/src/DAO/DaoTicket.java</file>
-        </group>
         <group>
+<<<<<<< HEAD
 <<<<<<< HEAD
             <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/vista/RegistroFuncion.java</file>
             <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlAsientos.java</file>
@@ -44,6 +41,11 @@
             <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/utils/GestorVentanas.java</file>
             <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlAsientos.java</file>
 >>>>>>> e2ffd97b888196894b3a9ad2e9ae3f7ad28e2f41
+=======
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/controlador/ControlAsientosTest.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlAsientos.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlFuncion.java</file>
+>>>>>>> 747a41d5cdded01e851c87f173846077af5aa72f
         </group>
     </open-files>
 </project-private>
