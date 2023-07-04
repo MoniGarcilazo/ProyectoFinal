@@ -10,43 +10,36 @@ import java.io.IOException;
 import javax.swing.JOptionPane;;
 
 /**
- *
- * @author josep
+ *Clase que realiza la creación de archivos relacionado con los boletos
  */
 public class DaoBoletos {
-    
+
     private File archivo;
     
-     public void crearArchivo() {
+    /**
+     * Método que crea un archivo txt con el nombre de Boletos
+     **/
+    public void crearArchivo() {
         File archivo = new File("Boletos.txt");
-       
+
     }
-    
-    
-    
+
+    /**
+     * Método que registra los boletos en un archivo txt con el nombre de Boletos
+     * @param datosBoleto boleto generado en la ultima venta
+     **/
     public void registrarBoletosEnArchivo(String datosBoleto) {
-             
-        if ( archivo == null) {
+        if (archivo == null) {
             crearArchivo();
         }
-        
-            FileWriter fr;
-        try
-        {
+        FileWriter fr;
+        try {
             fr = new FileWriter("Boletos.txt");
             fr.write(datosBoleto);
             fr.close();
             JOptionPane.showMessageDialog(null, "Registro exitoso de los boletos en archivo");
-        } catch (IOException ex)
-        {
+        } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, "Error en la escritura del archivo" + ex.getMessage());
-        } 
+        }
     }
-    
-    
-    
-    
-    
-    
-    
 }

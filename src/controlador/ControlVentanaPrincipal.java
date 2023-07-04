@@ -12,6 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import modelo.Boleto;
+import utils.GestorVentanas;
 import vista.Login;
 import vista.RegistroBoleto;
 import vista.Sala;
@@ -98,16 +99,16 @@ public class ControlVentanaPrincipal implements ActionListener {
      * Método que muestra la ventana Usuarios  
      **/
     public void accionarBotonUsuarios() {
-        asignarPosicionVentana(this.menu.getPanelUsuario());
-        mostrarNuevaVentana(this.menu.getPanelUsuario());
+        GestorVentanas.asignarPosicionVentana(this.menu.getPanelUsuario());
+        GestorVentanas.mostrarNuevaVentana(this.menu.getPanelUsuario(), menu);
     }
     
     /**
      * Método que muestra la ventana Obras 
      **/
     public void accionarBotonObra() {
-        asignarPosicionVentana(this.menu.getPanelObra());
-        mostrarNuevaVentana(this.menu.getPanelObra());
+        GestorVentanas.asignarPosicionVentana(this.menu.getPanelObra());
+        GestorVentanas.mostrarNuevaVentana(this.menu.getPanelObra(), menu);
         this.menu.getPanelObra().setTblObras(daoObra.cargarTabla(menu.getPanelObra().getTblObras()));
     }
 
@@ -115,8 +116,8 @@ public class ControlVentanaPrincipal implements ActionListener {
      * Método que muestra la ventana Funciones  
      **/
     public void accionarBotonFuncion() {
-        asignarPosicionVentana(this.menu.getPanelFuncion());
-        mostrarNuevaVentana(this.menu.getPanelFuncion());
+        GestorVentanas.asignarPosicionVentana(this.menu.getPanelFuncion());
+        GestorVentanas.mostrarNuevaVentana(this.menu.getPanelFuncion(), menu);
         menu.getPanelFuncion().getComboBoxObras().removeAllItems();
         menu.getPanelFuncion().setComboBoxObras(daoFuncion.cargarComboBox(menu.getPanelFuncion().getComboBoxObras()));
         daoFuncion.cargarTabla(menu.getPanelFuncion().getTblFunciones());
@@ -127,30 +128,28 @@ public class ControlVentanaPrincipal implements ActionListener {
      **/
     public void accionarBotonBoleto() {
         crearPanelBoleto();
-        asignarPosicionVentana(this.menu.getPanelBoleto());
-        mostrarNuevaVentana(this.menu.getPanelBoleto());
-        // Borrar los botones de la sala cada vez que se desee volver a registrar una funcion
+        GestorVentanas.asignarPosicionVentana(this.menu.getPanelBoleto());
+        GestorVentanas.mostrarNuevaVentana(this.menu.getPanelBoleto(), menu);
         Sala sala = new Sala();
         this.menu.setSala(sala);
         borrarTextoControlPago();
-        Boleto boleto = new Boleto();
-        ControlVentaBoleto controlVentaBoleto = new ControlVentaBoleto(boleto, this.menu);
+        ControlVentaBoleto controlVentaBoleto = new ControlVentaBoleto(this.menu);
     }
 
     /**
      * Método que muestra la ventana Pago 
      **/
     public void accionarBotonPago() {
-        asignarPosicionVentana(this.menu.getPanelPago());
-        mostrarNuevaVentana(this.menu.getPanelPago());
+        GestorVentanas.asignarPosicionVentana(this.menu.getPanelPago());
+        GestorVentanas.mostrarNuevaVentana(this.menu.getPanelPago(), menu);
     }
 
     /**
      * Método que muestra la ventana Reportes 
      **/
     public void accionarBotonReporte() {
-        asignarPosicionVentana(this.menu.getPanelReportes());
-        mostrarNuevaVentana(this.menu.getPanelReportes());
+        GestorVentanas.asignarPosicionVentana(this.menu.getPanelReportes());
+        GestorVentanas.mostrarNuevaVentana(this.menu.getPanelReportes(), menu);
     }
 
     /**
@@ -167,20 +166,10 @@ public class ControlVentanaPrincipal implements ActionListener {
      * Método que resetea todos los textos de la ventana Pago
      **/
     public void borrarTextoControlPago(){
-        // BORRAR el texto del control de pago
         menu.getPanelPago().getTxtAreaBoletos().setText("");
         menu.getPanelPago().getTxtAreaTicket().setText("");
         menu.getPanelPago().getTxtCambio().setText("");
         menu.getPanelPago().getTxtEfectivoRecibido().setText("");
-    }
-
-    /**
-     * Método que asigna las coordenadas a la ventana a mostrar
-     * @param ventana Jpanel el cual se va a mostrar en pantalla
-     **/
-    public void asignarPosicionVentana(JPanel ventana){
-        ventana.setSize(1460, 720);
-        ventana.setLocation(0, 0);
     }
 
     /**
@@ -191,14 +180,4 @@ public class ControlVentanaPrincipal implements ActionListener {
         this.menu.setPanelBoleto(panelBoleto);
     }
 
-    /**
-     * Método remueve a la ventana anterior
-     * @param ventana Jpanel el cual se va a quitar de la pantalla
-     **/
-    public void mostrarNuevaVentana(JPanel ventana){
-        this.menu.getPanelContenido().removeAll();
-        this.menu.getPanelContenido().add(ventana, BorderLayout.CENTER);
-        this.menu.getPanelContenido().revalidate();
-        this.menu.getPanelContenido().repaint();
-    }
 }
