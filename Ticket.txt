@@ -1,9 +1,9 @@
 			Teatro: Chachita
-	Numero de venta : 35
-	Nombre de la función: Chicago
+	Numero de venta : 39
+	Nombre de la función: Romeo y Julieta
 	Total de boletos: 3
-	Fecha de venta: 2022-12-09
-	Hora de venta: 09:32:11
-	Costo Total: 480.0
+	Fecha de venta: 2023-07-03
+	Hora de venta: 19:28:40
+	Costo Total: 196.95
 	Monto entregado: 500.0
-	Cambio: 20.00
+	Cambio: 303.05
