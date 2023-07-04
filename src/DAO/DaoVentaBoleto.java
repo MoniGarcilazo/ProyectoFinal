@@ -23,45 +23,39 @@ import modelo.ObraTeatral;
 public class DaoVentaBoleto {
     
     //Recuperar todas las funciones
-    public ArrayList<Funcion> recuperarFunciones( ) {
+    public ArrayList<Funcion> recuperarFunciones() {
         ArrayList<Funcion> listaFunciones = new ArrayList<Funcion>();
-        
+
         PreparedStatement ps;
         ResultSet rs;
-        
-        try
-        {
+
+        try {
             Connection conexion = ConexionBD.getConnection();
             ps = conexion.prepareStatement(" SELECT funciones.idFuncion, funciones.fechaPresentacion, funciones.horaPresentacion, obras.id, obras.nombre, obras.duracion, obras.precioBoleto FROM obras inner join funciones ON obras.id = funciones.idObra WHERE funciones.activo = 1 AND obras.activo = 1");
-            
+
             rs = ps.executeQuery();
-            
-            while(rs.next()) {
+
+            while (rs.next()) {
                 ObraTeatral obra = new ObraTeatral();
                 obra.setID(rs.getInt("obras.id"));
                 obra.setNombreObra(rs.getString("obras.nombre"));
                 obra.setDuracion(rs.getInt("obras.duracion"));
-                obra.setPrecioBoleto(rs.getDouble("obras.precioBoleto"));       
-                
+                obra.setPrecioBoleto(rs.getDouble("obras.precioBoleto"));
+
                 Funcion funcion = new Funcion();
                 funcion.setID(rs.getInt("funciones.idFuncion"));
                 funcion.setObra(obra);
                 funcion.setFechaDePresentacion(rs.getDate("funciones.fechaPresentacion"));
                 funcion.setHora(rs.getTime("funciones.horaPresentacion"));
-                            
+
                 listaFunciones.add(funcion);
             }
-            
-            
-        } catch (Exception e)
-        {
+
+        } catch (Exception e) {
         }
-        
+
         return listaFunciones;
-    }
-    
-    
-    
+    }   
     
     //Cargar las fechas de las funciones  en el ComboBox
     public JComboBox cargarComboBox(JComboBox comboBox) {
@@ -70,34 +64,24 @@ public class DaoVentaBoleto {
 
         PreparedStatement ps;
         ResultSet rs;
-        
+
         comboBox.addItem("Seleccione una fecha");
 
-        try
-        {
+        try {
             Connection conexion = ConexionBD.getConnection();
             ps = conexion.prepareStatement(" SELECT DISTINCT fechaPresentacion FROM obras inner join funciones ON obras.id = funciones.idObra WHERE funciones.activo = 1 AND obras.activo = 1");
             rs = ps.executeQuery();
-    
-            while (rs.next())
-            {
 
-                comboBox.addItem(rs.getDate("fechaPresentacion").toString());           
+            while (rs.next()) {
+
+                comboBox.addItem(rs.getDate("fechaPresentacion").toString());
             }
-            
-        } catch (SQLException e)
-        {
+
+        } catch (SQLException e) {
 
             JOptionPane.showMessageDialog(null, e.toString());
         }
-        
+
         return comboBox;
-    }
-    
-    
-    
-    
-    
-    
-    
+    }  
 }

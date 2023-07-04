@@ -8,8 +8,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 /**
- *
- * @author josep
+ *Clase que simula un boleto de una obra de teatro
  */
 public class Boleto {
     
