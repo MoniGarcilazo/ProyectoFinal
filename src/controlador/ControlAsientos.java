@@ -22,7 +22,7 @@ import vista.VentanaPrincipal;
 
 /**
  *
- * @author josep
+ * @author Monica Garcilazo
  */
 public class ControlAsientos implements ActionListener {
     
@@ -31,90 +31,61 @@ public class ControlAsientos implements ActionListener {
     DaoAsientos daoAsientos = new DaoAsientos();
     DaoBoletos daoBoletos = new DaoBoletos();
     
-    private int filasB = 5;
-    private int columnasB = 2;
-    private int filasA = 2;
-    private int columnasA = 5;
+    private final int FILAS_B = 5;
+    private final int COLUMNAS_B = 2;
+    private final int FILAS_A = 2;
+    private final int COLUMNAS_A = 5;
     private int largoBoton = 70;
     private int anchoBoton = 70;
-    private int ejeX = 50;
+    private int ejeX= 50;
     private int ejeY = 20;
     
-    private ArrayList<Asiento> lugarAsientos = new ArrayList<Asiento>(); // Lista para almacernar lo asientos que fueron seleccionados
-    private ArrayList<Boleto> Boletos = new ArrayList<Boleto>(); // Lista para almacenar los ID's de los boletos creados
+    private final ArrayList<Asiento> lugarAsientos = new ArrayList<Asiento>(); // Lista para almacernar lo asientos que fueron seleccionados
+    private final ArrayList<Boleto> Boletos = new ArrayList<Boleto>(); // Lista para almacenar los ID's de los boletos creados
     
-    private JToggleButton[][] botonesB1 = new JToggleButton[filasB][columnasB];
-    private JToggleButton[][] botonesB2 = new JToggleButton[filasB][columnasB];
-    private JToggleButton[][] botonesA = new JToggleButton[filasA][columnasA];
-    private JToggleButton[][] botonesC = new JToggleButton[filasA][columnasA];
+    private JToggleButton[][] botonesB1 = new JToggleButton[FILAS_B][COLUMNAS_B];
+    private JToggleButton[][] botonesB2 = new JToggleButton[FILAS_B][COLUMNAS_B];
+    private JToggleButton[][] botonesA = new JToggleButton[FILAS_A][COLUMNAS_A];
+    private JToggleButton[][] botonesC = new JToggleButton[FILAS_A][COLUMNAS_A];
     
-    private JLabel[][] btnB1 = new JLabel[filasB][columnasB];
-    private JLabel[][] btnB2 = new JLabel[filasB][columnasB];
-    private JLabel[][] btnA = new JLabel[filasA][columnasA];
-    private JLabel[][] btnC = new JLabel[filasA][columnasA];
+    private JLabel[][] btnB1 = new JLabel[FILAS_B][COLUMNAS_B];
+    private JLabel[][] btnB2 = new JLabel[FILAS_B][COLUMNAS_B];
+    private JLabel[][] btnA = new JLabel[FILAS_A][COLUMNAS_A];
+    private JLabel[][] btnC = new JLabel[FILAS_A][COLUMNAS_A];
 
+    /**
+     * Constructor de la clase
+     * @param menu Ventana Principal
+     * @param funcion Funcion con la que se trabaj
+     */
     public ControlAsientos(VentanaPrincipal menu, Funcion funcion) {
         this.menu = menu;
         
         // Asignarle a la funcion los datos de su sala;
         this.funcion = daoAsientos.traerDatosAsientos(funcion);
  
-        this.menu.getSala().setBotonesB1(asientosZonaB1());
-       this.menu.getSala().setBotonesB2(asientosZonaB2());
-        this.menu.getSala().setBotonesA(asientosZonaA());
-        this.menu.getSala().setBotonesC(asientosZonaC());
+        this.menu.getSala().setBotonesB1(creacionAsientosZonaB1());
+       this.menu.getSala().setBotonesB2(creacionAsientosZonaB2());
+        this.menu.getSala().setBotonesA(creacionAsientosZonaA());
+        this.menu.getSala().setBotonesC(creacionAsientosZonaC());
         this.menu.getSala().setBtnB1( btnB1 );
         
-        this.menu.getSala().getBtnAceptar().addActionListener(this);
+        this.menu.getSala().getBtnAceptar().addActionListener(this); 
         
 
     }
     
+    /**
+     * Realiza las acciones programadas segun el evento, 
+     * Modifica los asientos cuando se acepten las sillas selecionadas
+     **/
     @Override
     public void actionPerformed(ActionEvent e) {
         
-        //Modificar los asientos cuando aceptemos todas las sillas seleccionadas
         if (this.menu.getSala().getBtnAceptar() == e.getSource() ) {
-            
-            for( int i = 0; i < filasB; i++ ) {
-                for( int k = 0; k < columnasB; k++) {
-                     if(botonesB1[i][k].isSelected()) {
-                                    funcion.getZonaB()[i][k].setDisponible(0);
-                                    lugarAsientos.add(funcion.getZonaB()[i][k]); //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
-                                } 
-                     if(botonesB2[i][k].isSelected()) {
-                                funcion.getZonaB2()[i][k].setDisponible(0);
-                                lugarAsientos.add(funcion.getZonaB2()[i][k]); //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
-                            } 
-                } 
-                
-            }
-            for( int i = 0; i < filasA; i++ ) {
-                for( int k = 0; k < columnasA; k++) {
-                     if(botonesA[i][k].isSelected()) {
-                                   funcion.getZonaA()[i][k].setDisponible(0);
-                                   lugarAsientos.add(funcion.getZonaA()[i][k]); //Añadir losAsientos seleccionados al arreglo para poder crear los boletos
-                            } 
-                     if(botonesC[i][k].isSelected()) {
-                            funcion.getZonaC()[i][k].setDisponible(0);
-                            lugarAsientos.add(funcion.getZonaC()[i][k]);  //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
-                        }   
-            }
-  
-        }          
-            
-            //Crear los boletos
-            for(int i = 0; i < lugarAsientos.size(); i++) {
-            Boleto boleto = new Boleto();
-            boleto.setLugar(lugarAsientos.get(i));
-            boleto.setFuncion(funcion);
-            boleto.setPrecioBoleto(lugarAsientos.get(i).getPrecioAsiento());
-            boleto.setFechaFuncion(funcion.getFechaDePresentacion());
-            boleto.setHoraFuncion(funcion.getHora());
-            
-//            daoBoletos.agregarBoleto(boleto); // Agregar el boleto en la lista para almacenar los boletos creados y proceder al pago
-            Boletos.add(boleto); //Insertar el boleto en la base de datos
-        }
+            actualizarAsientosSeleccionados();
+            crearBoletos();
+
             menu.getPanelPago().setSize(1460, 720);
             menu.getPanelPago().setLocation(0, 0);
       
@@ -127,24 +98,69 @@ public class ControlAsientos implements ActionListener {
         }
 
     }
+    /**
+     * Metodo que actualiza los asientos que fueron seleecionados
+     **/
+    public void actualizarAsientosSeleccionados(){
+                    for( int i = 0; i < FILAS_B; i++ ) {
+                for( int k = 0; k < COLUMNAS_B; k++) {
+                     if(botonesB1[i][k].isSelected()) {
+                                    funcion.getZonaB()[i][k].setDisponible(0);
+                                    lugarAsientos.add(funcion.getZonaB()[i][k]); //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
+                                } 
+                     if(botonesB2[i][k].isSelected()) {
+                                funcion.getZonaB2()[i][k].setDisponible(0);
+                                lugarAsientos.add(funcion.getZonaB2()[i][k]); //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
+                            } 
+                } 
+                
+            }
+            for( int i = 0; i < FILAS_A; i++ ) {
+                for( int k = 0; k < COLUMNAS_A; k++) {
+                     if(botonesA[i][k].isSelected()) {
+                                   funcion.getZonaA()[i][k].setDisponible(0);
+                                   lugarAsientos.add(funcion.getZonaA()[i][k]); //Añadir losAsientos seleccionados al arreglo para poder crear los boletos
+                            } 
+                     if(botonesC[i][k].isSelected()) {
+                            funcion.getZonaC()[i][k].setDisponible(0);
+                            lugarAsientos.add(funcion.getZonaC()[i][k]);  //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
+                        }   
+            }
+  
+        }    
+    }
     
+    /**
+     * Metodo que crea los boletos dependiendo de los asientos que fueron seleccionados
+     * Se almacena en la base de datos
+     **/
+    public void crearBoletos(){
+            for(int i = 0; i < lugarAsientos.size(); i++) {
+                Boleto boleto = new Boleto();
+                boleto.setLugar(lugarAsientos.get(i));
+                boleto.setFuncion(funcion);
+                boleto.setPrecioBoleto(lugarAsientos.get(i).getPrecioAsiento());
+                boleto.setFechaFuncion(funcion.getFechaDePresentacion());
+                boleto.setHoraFuncion(funcion.getHora());
+
+    //            daoBoletos.agregarBoleto(boleto); // Agregar el boleto en la lista para almacenar los boletos creados y proceder al pago
+                Boletos.add(boleto); //Insertar el boleto en la base de datos
+                }
+    }
     
-    
-    
-    
-    
-    
-    
-    // Crear los botones
-    public JToggleButton[][] asientosZonaB1( ) { 
+   /**
+    * Metodo que crea los asientos de la zona B1
+     * @return Arreglo de botones de la zona B1
+    **/
+    public JToggleButton[][] creacionAsientosZonaB1( ) { 
             
-            botonesB1 = new JToggleButton[filasB][columnasB];
+            botonesB1 = new JToggleButton[FILAS_B][COLUMNAS_B];
             
             int contador = 1;
             
-            for( int i = 0;  i < filasB; i++) {
+            for( int i = 0;  i < FILAS_B; i++) {
                 
-                for(int k = 0; k < columnasB; k++ ) {
+                for(int k = 0; k < COLUMNAS_B; k++ ) {
                     
                     botonesB1[i][k] = new JToggleButton();
                     botonesB1[i][k].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
@@ -161,9 +177,9 @@ public class ControlAsientos implements ActionListener {
                     botonesB1[i][k].addActionListener(accion);
                     
                     if( funcion.getZonaB()[i][k].isDisponible() == 1) {
-                        botonesB1[i][k].setIcon(imagenSillaDisponible());
+                        botonesB1[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
                     } else {
-                        botonesB1[i][k].setIcon(imagenSillaOcupada());
+                        botonesB1[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                     }
                     
                     botonesB1[i][k].setBorderPainted(false);
@@ -181,17 +197,20 @@ public class ControlAsientos implements ActionListener {
             }
             return botonesB1;
         }
-    
-    public JToggleButton[][] asientosZonaB2( ) { 
+    /**
+    * Metodo que crea los asientos de la zona B2
+     * @return Arreglo de botones de la zona B2
+    **/
+    public JToggleButton[][] creacionAsientosZonaB2( ) { 
              ejeX = 1050;
              ejeY = 20;
-            botonesB2 = new JToggleButton[filasB][columnasB];
+            botonesB2 = new JToggleButton[FILAS_B][COLUMNAS_B];
             
              int contador = 11;
             
-            for( int i = 0;  i < filasB; i++) {
+            for( int i = 0;  i < FILAS_B; i++) {
                 
-                for(int k = 0; k < columnasB; k++ ) {
+                for(int k = 0; k < COLUMNAS_B; k++ ) {
                     
                     botonesB2[i][k] = new JToggleButton();
                     botonesB2[i][k].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
@@ -208,9 +227,9 @@ public class ControlAsientos implements ActionListener {
                     botonesB2[i][k].addActionListener(accion);
                     
                     if( funcion.getZonaB2()[i][k].isDisponible() == 1) {
-                        botonesB2[i][k].setIcon(imagenSillaDisponible());
+                        botonesB2[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
                     } else {
-                        botonesB2[i][k].setIcon(imagenSillaOcupada());
+                        botonesB2[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                     }
                     botonesB2[i][k].setBorderPainted(false);
                     botonesB2[i][k].setContentAreaFilled(false);
@@ -228,18 +247,22 @@ public class ControlAsientos implements ActionListener {
             return botonesB2;
         }
     
-    public JToggleButton[][] asientosZonaA( ) { 
+    /**
+    * Metodo que crea los asientos de la zona A
+     * @return Arreglo de botones de la zona A
+    **/
+    public JToggleButton[][] creacionAsientosZonaA( ) { 
         
              ejeX = 350;
              ejeY = 20;
-            botonesA = new JToggleButton[filasA][columnasA];
+            botonesA = new JToggleButton[FILAS_A][COLUMNAS_A];
             int contador = 1;
             
             
             
-            for( int i = 0;  i < filasA; i++) {
+            for( int i = 0;  i < FILAS_A; i++) {
                 
-                for(int k = 0; k < columnasA; k++ ) {
+                for(int k = 0; k < COLUMNAS_A; k++ ) {
                     
                     //Crear botones con sus dimensiones y el lugar espacial en el JFrame
                     botonesA[i][k] = new JToggleButton();
@@ -258,9 +281,9 @@ public class ControlAsientos implements ActionListener {
                     //Dar le diseño de imagen a los botones
                     
                     if ( funcion.getZonaA()[i][k].isDisponible() == 1) {
-                        botonesA[i][k].setIcon(imagenSillaDisponible());
+                        botonesA[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
                     } else {
-                        botonesA[i][k].setIcon(imagenSillaOcupada());
+                        botonesA[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                     }
                     
                     botonesA[i][k].setBorderPainted(false);
@@ -279,16 +302,19 @@ public class ControlAsientos implements ActionListener {
             }
             return botonesA;
         }
-    
-    public JToggleButton[][] asientosZonaC( ) { 
+    /**
+    * Metodo que crea los asientos de la zona C
+     * @return Arreglo de botones de la zona C
+    **/
+    public JToggleButton[][] creacionAsientosZonaC( ) { 
              ejeX = 350;
              ejeY = 230;
-            botonesC = new JToggleButton[filasA][columnasA];
+            botonesC = new JToggleButton[FILAS_A][COLUMNAS_A];
             int contador = 1;
             
-            for( int i = 0;  i < filasA; i++) {
+            for( int i = 0;  i < FILAS_A; i++) {
                 
-                for(int k = 0; k < columnasA; k++ ) {
+                for(int k = 0; k < COLUMNAS_A; k++ ) {
                     
                     botonesC[i][k] = new JToggleButton();
                     botonesC[i][k].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
@@ -305,9 +331,9 @@ public class ControlAsientos implements ActionListener {
                     botonesC[i][k].addActionListener(accion);
                     
                     if( funcion.getZonaC()[i][k].isDisponible() == 1) {
-                        botonesC[i][k].setIcon(imagenSillaDisponible());
+                        botonesC[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
                     } else {
-                        botonesC[i][k].setIcon(imagenSillaOcupada());
+                        botonesC[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                     }
                     
                     botonesC[i][k].setBorderPainted(false);
@@ -326,60 +352,41 @@ public class ControlAsientos implements ActionListener {
             return botonesC;
         }
     
-    // Imagenes de las sillas
-    
-    public Icon imagenSillaDisponible( ) {
-            ImageIcon sillaDisponible;
-            sillaDisponible = new ImageIcon(getClass().getResource("/imagenes/asientoDisponible.png"));
-            Icon sillaIcono = new ImageIcon(sillaDisponible.getImage().getScaledInstance(
+    /**
+     * Metodo que crea el icono de las sillas
+     * @param imagen imagen de la silla dependiendo si es Disponible/Seleccionada/Ocupada
+     * @return icono de las sillas con las medidas deseadas
+     **/
+    public Icon crearIconoSilla(String imagen) {
+            ImageIcon silla;
+            silla = new ImageIcon(getClass().getResource(imagen));
+            Icon sillaIcono = new ImageIcon(silla.getImage().getScaledInstance(
                     70, 70, Image.SCALE_SMOOTH));
             return sillaIcono;
         }
-    
-    public Icon imagenSillaSeleccionada( ) {
-            ImageIcon sillaSeleccion;
-            sillaSeleccion = new ImageIcon(getClass().getResource("/imagenes/asientoSeleccionado.png"));
-            Icon sillaIcono = new ImageIcon(sillaSeleccion.getImage().getScaledInstance(
-                    70, 70, Image.SCALE_SMOOTH));
-            return sillaIcono;
-        }
-    
-//    public Icon imagenSillaDeshabilitada( ) {
-//            ImageIcon sillaSeleccion;
-//            sillaSeleccion = new ImageIcon(getClass().getResource("/imagenes/sillaDeshabilitado.png"));
-//            Icon sillaIcono = new ImageIcon(sillaSeleccion.getImage().getScaledInstance(
-//                    70, 70, Image.SCALE_SMOOTH));
-//            return sillaIcono;
-//        }
-    
-    public Icon imagenSillaOcupada( ) {
-            ImageIcon sillaSeleccion;
-            sillaSeleccion = new ImageIcon(getClass().getResource("/imagenes/asientoOcupado.png"));
-            Icon sillaIcono = new ImageIcon(sillaSeleccion.getImage().getScaledInstance(
-                    70, 70, Image.SCALE_SMOOTH));
-            return sillaIcono;
-        } 
-    
-    
-    // Crear una clase interna para el accionar de los botones
+  
+   /**
+    * Clase interna para manejar la accion de los botones
+    **/
     public class AccionBotones implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-                for( int i = 0; i < filasB; i++ ) {
-                for( int k = 0; k < columnasB; k++) {
+         public void actionPerformed(ActionEvent e) {
+            
+                for( int i = 0; i < FILAS_B; i++ ) {
+                for( int k = 0; k < COLUMNAS_B; k++) {
                  
                     if ( e.getSource().equals(botonesB1[i][k])) {
                         if( funcion.getZonaB()[i][k].isDisponible() == 1) {
                                 if(botonesB1[i][k].isSelected()) {
                                     
-                                    botonesB1[i][k].setIcon(imagenSillaSeleccionada());
+                                    botonesB1[i][k].setIcon(crearIconoSilla("/imagenes/asientoSeleccionado.png"));
                                 } else {
                                     if( funcion.getZonaB()[i][k].isDisponible() == 1) {
-                                        botonesB1[i][k].setIcon(imagenSillaDisponible());
+                                        botonesB1[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
 
                                     } else {
-                                        botonesB1[i][k].setIcon(imagenSillaOcupada());
+                                        botonesB1[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                                 }
                             }
                         } else {
@@ -392,13 +399,13 @@ public class ControlAsientos implements ActionListener {
                         if( funcion.getZonaB2()[i][k].isDisponible() == 1) {
                             if(botonesB2[i][k].isSelected()) {
 
-                                botonesB2[i][k].setIcon(imagenSillaSeleccionada());
+                                botonesB2[i][k].setIcon(crearIconoSilla("/imagenes/asientoSeleccionado.png"));
                             } else {
                                 if( funcion.getZonaB2()[i][k].isDisponible() == 1) {
-                                    botonesB2[i][k].setIcon(imagenSillaDisponible());
+                                    botonesB2[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
 
                                 } else {
-                                    botonesB2[i][k].setIcon(imagenSillaOcupada());
+                                    botonesB2[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                                 }
                             }
                         } else {
@@ -409,8 +416,8 @@ public class ControlAsientos implements ActionListener {
                 
             }
             
-            for( int i = 0; i < filasA; i++ ) {
-                for( int k = 0; k < columnasA; k++) {
+            for( int i = 0; i < FILAS_A; i++ ) {
+                for( int k = 0; k < COLUMNAS_A; k++) {
                  
                     if ( e.getSource().equals(botonesA[i][k])) {
                         
@@ -418,13 +425,13 @@ public class ControlAsientos implements ActionListener {
                         
                             if(botonesA[i][k].isSelected()) {
 
-                                botonesA[i][k].setIcon(imagenSillaSeleccionada());
+                                botonesA[i][k].setIcon(crearIconoSilla("/imagenes/asientoSeleccionado.png"));
                             } else {
                                 if( funcion.getZonaA()[i][k].isDisponible() == 1) {
-                                    botonesA[i][k].setIcon(imagenSillaDisponible());
+                                    botonesA[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
 
                                 } else {
-                                    botonesA[i][k].setIcon(imagenSillaOcupada());
+                                    botonesA[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                                 }
                             }
                         } else {
@@ -438,13 +445,13 @@ public class ControlAsientos implements ActionListener {
                                 
                         if(botonesC[i][k].isSelected()) {
 
-                            botonesC[i][k].setIcon(imagenSillaSeleccionada()); 
+                            botonesC[i][k].setIcon(crearIconoSilla("/imagenes/asientoSeleccionado.png")); 
                         } else {
                             if( funcion.getZonaC()[i][k].isDisponible() == 1) {
-                                botonesC[i][k].setIcon(imagenSillaDisponible());
+                                botonesC[i][k].setIcon(crearIconoSilla("/imagenes/asientoDisponible.png"));
 
                             } else {
-                                botonesC[i][k].setIcon(imagenSillaOcupada());
+                                botonesC[i][k].setIcon(crearIconoSilla("/imagenes/asientoOcupado.png"));
                             }
                         }
                         } else {
