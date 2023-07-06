@@ -149,7 +149,7 @@ public final class ControlPago implements ActionListener {
                 ticket.setBoletosVendidos(boletos.size());
                 ticket.setTotal(totalPago());
                 ticket.setMontoEntregado(montoEntregado());
-                int idTicket = daoTicket.agregarTicketBaseDato(ticket);
+                int idTicket = daoTicket.agregarTicket(ticket);
                 ticket.setNumDeVenta(idTicket);
 
                 JOptionPane.showMessageDialog(null, "Pago exitoso");

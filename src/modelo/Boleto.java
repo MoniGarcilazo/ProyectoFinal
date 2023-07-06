@@ -7,9 +7,7 @@ package modelo;
 import java.sql.Date;
 import java.sql.Time;
 
-/**
- *Clase que simula un boleto de una obra de teatro
- */
+
 public class Boleto {
     
     private int ID;

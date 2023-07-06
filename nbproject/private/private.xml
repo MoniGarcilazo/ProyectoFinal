@@ -3,49 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-<<<<<<< HEAD
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/vista/RegistroFuncion.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlAsientos.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlPago.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlFuncion.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/DAO/DaoFuncion.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlVentanaPrincipal.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/modelo/Administrador.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlLogin.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/modelo/ObraTeatral.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlObras.java</file>
-<<<<<<< HEAD
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/test/controlador/ControlVentanaPrincipalTest.java</file>
-=======
->>>>>>> monirama
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/modelo/Funcion.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlUsuario.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlVentaBoleto.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/controlador/ControlReporte.java</file>
-            <file>file:/C:/Users/jokag/OneDrive/Escritorio/Amor%20de%20mi%20vida%20mon%20mon%20grande%20inge/POO%20PF/ProyectoFinal/src/modelo/Usuario.java</file>
-=======
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlLogin.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlPago.java</file>
             <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlVentanaPrincipal.java</file>
             <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlVentaBoleto.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlUsuario.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoBoletos.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/modelo/ObraTeatral.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/vista/Reportes.java</file>
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoReporte.java</file>
             <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoObras.java</file>
             <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlReporte.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/test/controlador/ControlVentanaPrincipalTest.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/test/MainPrueba.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlObras.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/DAO/DaoVentaBoleto.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/modelo/ObraTeatral.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlFuncion.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/utils/GestorVentanas.java</file>
-            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/controlador/ControlAsientos.java</file>
->>>>>>> e2ffd97b888196894b3a9ad2e9ae3f7ad28e2f41
-=======
-            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/controlador/ControlAsientosTest.java</file>
-            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlAsientos.java</file>
-            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlFuncion.java</file>
->>>>>>> 747a41d5cdded01e851c87f173846077af5aa72f
+            <file>file:/C:/Users/erick/Documents/Facultad%20Matemáticas/Archivos%20de%20Tareas/Quinto%20Semestre/Construcción/ProyectoFinal/ProyectoFinal/src/modelo/Boleto.java</file>
         </group>
     </open-files>
 </project-private>
