@@ -21,17 +21,19 @@ import javax.swing.table.DefaultTableModel;
 import modelo.Ticket;
 
 /**
- *
- * @author josep
+ *Clase que realiza las consultas a la base de datos relacionado con los tickets
  */
 public class DaoReporte {
     
     private File archivo;
     
-    public int agregarTicketBaseDato(Ticket dataTicket) {
-        
+    /**
+     * Método que agrega un ticket a la base de datos 
+     * @param dataTicket Ticket a agregar
+     * @return idNuevoTicket
+     **/
+    public int agregarTicket(Ticket dataTicket) {
         int idNuevoTicket = 0;
-        
         try
         {
             Connection conexion = ConexionBD.getConnection();
@@ -54,56 +56,47 @@ public class DaoReporte {
         } catch (Exception e)
         {
             JOptionPane.showMessageDialog(null, e.toString());
-        }
-        
+        }      
         return idNuevoTicket;
-        
-   
     }
     
+    /**
+     * Método que agrega las fechas al combobox 
+     * @param comboBox comboBox a cargar
+     * @return comboBox
+     **/
     public JComboBox cargarComboBox(JComboBox comboBox) {
         DefaultComboBoxModel modeloCombo = (DefaultComboBoxModel) comboBox.getModel();
         comboBox.setModel(modeloCombo);
-
         PreparedStatement ps;
         ResultSet rs;
-
-        try
-        {
+        try {
             Connection conexion = ConexionBD.getConnection();
             ps = conexion.prepareStatement(" SELECT DISTINCT fechaVenta FROM tickets");
             rs = ps.executeQuery();
-    
-            while (rs.next())
-            {
-
-                comboBox.addItem(rs.getDate("fechaVenta").toString());           
+            while (rs.next()) {
+                comboBox.addItem(rs.getDate("fechaVenta").toString());
             }
-            
-        } catch (SQLException e)
-        {
-
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());
         }
-        
         return comboBox;
     }
     
-    public ArrayList<Ticket> recuperarTickets( ) {
+    
+    /**
+     * Método que obtiene todos los tickets de la base de datos
+     * @return comboBox
+     **/
+    public ArrayList<Ticket> recuperarTickets() {
         ArrayList<Ticket> listaTickets = new ArrayList<Ticket>();
-        
         PreparedStatement ps;
         ResultSet rs;
-        
-        
-        try{
+        try {
             Connection conexion = ConexionBD.getConnection();
             ps = conexion.prepareStatement("SELECT idTicket, totalBoletos, fechaVenta, horaVenta, costoTotal, montoEntregado, cambio FROM tickets");
-            
             rs = ps.executeQuery();
-           
-            
-            while(rs.next()){
+            while (rs.next()) {
                 Ticket ticket = new Ticket();
                 ticket.setNumDeVenta(rs.getInt("idTicket"));
                 ticket.setBoletosVendidos(rs.getInt("totalBoletos"));
@@ -112,20 +105,25 @@ public class DaoReporte {
                 ticket.setTotal(rs.getDouble("costoTotal"));
                 ticket.setMontoEntregado(rs.getDouble("montoEntregado"));
                 ticket.setCambio(rs.getDouble("cambio"));
-                
+
                 listaTickets.add(ticket);
             }
-        }catch(Exception e){
-            
+        } catch (Exception e) {
         }
-        
         return listaTickets;
     }
     
+    /**
+     * Método que crea un archivo con el nombre Ticket.txt
+     **/
     public void crearArchivo() {
         File archivo = new File("Ticket.txt");
     }
     
+    /**
+     * Método que registra el ticket en un archivo txt
+     * @param  datosTicket
+     **/
     public void registrarTicketEnArchivo(String datosTicket) {
              
         if ( archivo == null) {
@@ -147,56 +145,4 @@ public class DaoReporte {
         }
         
     }
-    
-    public JTable cargarTabla(JTable tblTicket, ArrayList<Ticket> listaTicket) {
-
-        DefaultTableModel modeloTabla = (DefaultTableModel) tblTicket.getModel();
-        modeloTabla.setRowCount(0);
-
-        int[] anchos
-                = {
-                    10, 40, 40, 40, 40, 40, 40
-                };
-
-        for (int i = 0; i < tblTicket.getColumnCount(); i++) {
-            tblTicket.getColumnModel().getColumn(i).setPreferredWidth(anchos[i]);
-        }
-
-        for (Ticket ticket : listaTicket) {
-            Object[] row = new Object[]{ticket.getNumDeVenta(), ticket.getBoletosVendidos(), ticket.getFechaVenta(),
-                ticket.getHoraVenta(), ticket.getTotal(), ticket.getMontoEntregado(), ticket.getCambio()};
-            modeloTabla.addRow(row);
-        }
-
-        return tblTicket;
-    }
-
-    public int getCantidadBoletos(ArrayList<Ticket> listaTicket) {
-
-        int cantBoletos = 0;
-
-        for (int i = 0; i < listaTicket.size(); i++) {
-            int contBoleto = listaTicket.get(i).getBoletosVendidos();
-            cantBoletos = cantBoletos + contBoleto;
-        }
-
-        return cantBoletos;
-    }
-
-    public double getCantidadMontoTotal(ArrayList<Ticket> listaTicket) {
-
-        double cantMontoTotal = 0;
-
-        for (int i = 0; i < listaTicket.size(); i++) {
-            double contMontoTotal = listaTicket.get(i).getTotal();
-            cantMontoTotal = cantMontoTotal + contMontoTotal;
-        }
-
-        return cantMontoTotal;
-    }
-
-    
-    
-   
-
 }

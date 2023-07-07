@@ -4,10 +4,7 @@ package modelo;
 import java.sql.Date;
 import java.sql.Time;
 
-/**
- *
- * @author josep
- */
+
 public class Boleto {
     
     private int ID;

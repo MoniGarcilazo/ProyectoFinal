@@ -4,9 +4,6 @@
  */
 package DAO;
 
-/**
- *Clase que controla la ventana Obras
- */
 import SQL.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

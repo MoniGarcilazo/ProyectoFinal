@@ -12,6 +12,7 @@ import vista.Login;
 import javax.swing.JOptionPane;
 import modelo.Funcion;
 import modelo.ObraTeatral;
+import modelo.Ticket;
 import vista.VentanaPrincipal;
 
 /**
@@ -38,7 +39,7 @@ public class ControlLogin implements ActionListener{
 //    Boleto boleto = new Boleto();
 //    ControlVentaBoleto controlVentaBoleto = new ControlVentaBoleto(boleto, menu);
   
-    
+    ControlReporte controlReporte = new ControlReporte(menu);
 
     public ControlLogin( Login login) {
         

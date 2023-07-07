@@ -4,9 +4,6 @@ package modelo;
 import Exceptions.CamposObligatoriosException;
 import Exceptions.TiempoMaximoException;
 
-/**
- *Clase que simula una obra de teatro
- */
 public class ObraTeatral {
     
     private int ID;

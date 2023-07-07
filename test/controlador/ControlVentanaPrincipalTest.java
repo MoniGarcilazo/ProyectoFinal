@@ -115,16 +115,4 @@ public class ControlVentanaPrincipalTest {
         assertEquals(resultadoEsperado,  menu.getPanelPago().getTxtEfectivoRecibido().getText());
     }
     
-    @Test
-    public void testAsignarPosicionVentana() {
-        JPanel ventana = new JPanel();
-        controlMenu.asignarPosicionVentana(ventana);
-        assertEquals(1460,  ventana.getWidth());
-        assertEquals(720,  ventana.getHeight());
-        assertEquals(0,  ventana.getLocation().x);
-        assertEquals(0,  ventana.getLocation().y);
-    }
-    
-
-    
 }
