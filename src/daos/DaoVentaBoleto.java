@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package DAO;
 
-import SQL.ConexionBD;
+package daos;
+
+import csql.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,13 +13,12 @@ import javax.swing.JOptionPane;
 import modelo.Funcion;
 import modelo.ObraTeatral;
 
-/**
- *
- * @author josep
- */
+
 public class DaoVentaBoleto {
     
-    //Recuperar todas las funciones
+    /**
+     * Metodo que recupera todos los tickets
+     **/
     public ArrayList<Funcion> recuperarFunciones() {
         ArrayList<Funcion> listaFunciones = new ArrayList<Funcion>();
 
@@ -57,7 +53,11 @@ public class DaoVentaBoleto {
         return listaFunciones;
     }   
     
-    //Cargar las fechas de las funciones  en el ComboBox
+    /**
+     * Metodo que carga las fechas al comboBox
+     * @param comboBox comboBox para cargar las fechas
+     * @return comboBox
+     **/
     public JComboBox cargarComboBox(JComboBox comboBox) {
         DefaultComboBoxModel modeloCombo = (DefaultComboBoxModel) comboBox.getModel();
         comboBox.setModel(modeloCombo);

@@ -4,9 +4,9 @@
  */
 package controlador;
 
-import DAO.DaoFuncion;
-import DAO.DaoObras;
-import DAO.DaoVentaBoleto;
+import daos.DaoFuncion;
+import daos.DaoObras;
+import daos.DaoVentaBoleto;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

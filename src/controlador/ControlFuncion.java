@@ -1,8 +1,8 @@
 
 package controlador;
 
-import DAO.DaoAsientos;
-import DAO.DaoFuncion;
+import daos.DaoAsientos;
+import daos.DaoFuncion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;

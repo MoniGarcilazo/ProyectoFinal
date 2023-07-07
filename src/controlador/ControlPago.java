@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
-import DAO.DaoAsientos;
-import DAO.DaoBoletos;
-import DAO.DaoReporte;
+import daos.DaoAsientos;
+import daos.DaoBoletos;
+import daos.DaoReporte;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,11 +23,17 @@ import vista.VentanaPrincipal;
 public final class ControlPago implements ActionListener {
 
     ArrayList<Boleto> boletos = new ArrayList<>();
+    
     VentanaPrincipal menu = new VentanaPrincipal();
+    
     DaoBoletos daoBoletos = new DaoBoletos();
+    
     DaoReporte daoTicket = new DaoReporte();
+    
     DaoAsientos daoAsientos = new DaoAsientos();
+    
     Ticket ticket = new Ticket();
+    
     Funcion funcion = new Funcion();
 
     /**

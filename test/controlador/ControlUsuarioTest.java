@@ -4,7 +4,7 @@
  */
 package controlador;
 
-import DAO.DaoUsuario;
+import daos.DaoUsuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
 import org.junit.Before;

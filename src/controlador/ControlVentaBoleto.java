@@ -1,10 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
-import DAO.DaoVentaBoleto;
+import daos.DaoVentaBoleto;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,10 +17,15 @@ import vista.VentanaPrincipal;
 public class ControlVentaBoleto implements ActionListener {
     
     VentanaPrincipal menu = new VentanaPrincipal();
+    
     DaoVentaBoleto daoVentaBoleto = new DaoVentaBoleto();
+    
     Funcion funcion1 = new Funcion();
+    
     Funcion funcion2 = new Funcion();
+    
     ArrayList<Funcion> listaFunciones;
+    
     ArrayList<Funcion> listaFuncionesPorDia;
     
     /**
@@ -93,6 +95,8 @@ public class ControlVentaBoleto implements ActionListener {
                                     String.valueOf(funcion2.getHora()), String.valueOf((char) funcion2.getID()));
                 this.menu.getPanelBoleto().getBtnHorario2().setEnabled(true);
                 break;
+            default:
+                JOptionPane.showMessageDialog(null, "No hay funciones en esa fecha");
         }
     }
     

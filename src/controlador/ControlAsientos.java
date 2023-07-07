@@ -1,8 +1,8 @@
 
 package controlador;
 
-import DAO.DaoAsientos;
-import DAO.DaoBoletos;
+import daos.DaoAsientos;
+import daos.DaoBoletos;
 import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -74,18 +74,17 @@ public class ControlAsientos implements ActionListener {
      */
     public ControlAsientos(VentanaPrincipal menu, Funcion funcion) {
         this.menu = menu;
-        
+
         // Asignarle a la funcion los datos de su sala;
         this.funcion = daoAsientos.traerDatosAsientos(funcion);
- 
+
         this.menu.getSala().setBotonesB1(creacionAsientosZonaB1());
-       this.menu.getSala().setBotonesB2(creacionAsientosZonaB2());
+        this.menu.getSala().setBotonesB2(creacionAsientosZonaB2());
         this.menu.getSala().setBotonesA(creacionAsientosZonaA());
         this.menu.getSala().setBotonesC(creacionAsientosZonaC());
-        this.menu.getSala().setBtnB1( btnB1 );
-        
-        this.menu.getSala().getBtnAceptar().addActionListener(this); 
-        
+        this.menu.getSala().setBtnB1(btnB1);
+
+        this.menu.getSala().getBtnAceptar().addActionListener(this);
 
     }
     

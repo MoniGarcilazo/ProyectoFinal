@@ -4,7 +4,7 @@
  */
 package controlador;
 
-import DAO.DaoReporte;
+import daos.DaoReporte;
 import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

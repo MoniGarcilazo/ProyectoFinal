@@ -1,8 +1,8 @@
 
 package modelo;
 
-import Exceptions.CamposObligatoriosException;
-import Exceptions.TiempoMaximoException;
+import exception.CamposObligatoriosException;
+import exception.TiempoMaximoException;
 
 public class ObraTeatral {
     

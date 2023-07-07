@@ -1,11 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
-import DAO.DaoUsuario;
-import Exceptions.CamposObligatoriosException;
+import daos.DaoUsuario;
+import exception.CamposObligatoriosException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -14,10 +11,7 @@ import javax.swing.JOptionPane;
 import modelo.Usuario;
 import vista.VentanaPrincipal;
 
-/**
- *
- * @author josep
- */
+
 /**
  * 
  * Clase que controla la sección de usuarios
@@ -25,15 +19,16 @@ import vista.VentanaPrincipal;
 public class ControlUsuario implements ActionListener, MouseListener {
 
     Usuario usuario;
+    
     VentanaPrincipal menu = new VentanaPrincipal();
-    DaoUsuario daoUsuario = new DaoUsuario();
     
+    DaoUsuario daoUsuario = new DaoUsuario();    
     
-/**
- * Constructor de la clase ControlUsuario
- * @param usuario con el que se comunicará los botones
- * @param menu, o interfaz gráfica para las acciones
- */
+    /**
+     * Constructor de la clase ControlUsuario
+     * @param usuario con el que se comunicará los botones
+     * @param menu, o interfaz gráfica para las acciones
+     */
     public ControlUsuario(Usuario usuario, VentanaPrincipal menu) {
 
         this.usuario = usuario;
@@ -138,9 +133,9 @@ public class ControlUsuario implements ActionListener, MouseListener {
         this.usuario.setApellido(menu.getPanelUsuario().getTxtApellido().getText());
         this.usuario.setCURP(menu.getPanelUsuario().getTxtCURP().getText());
 
-        if (menu.getPanelUsuario().getRbAdmin().isSelected() == true) {
+        if (menu.getPanelUsuario().getRbAdmin().isSelected()) {
             this.usuario.setRol("Administrador");
-        } else if (menu.getPanelUsuario().getRbVendedor().isSelected() == true) {
+        } else if (menu.getPanelUsuario().getRbVendedor().isSelected()) {
             this.usuario.setRol("Vendedor");
         } else {
             this.usuario.setRol("Vendedor");
@@ -154,6 +149,7 @@ public class ControlUsuario implements ActionListener, MouseListener {
      * Método que detecta los datos seleccionados y los muestra en pantalla
      * @param event detección de puntero accionado
      */
+    
     @Override
     public void mouseClicked(MouseEvent event) {
         this.usuario = daoUsuario.regresarDatosEnCasillas(menu.getPanelUsuario().getTblUsuarios());

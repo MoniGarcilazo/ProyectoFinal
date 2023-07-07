@@ -4,7 +4,7 @@
  */
 package controlador;
 
-import DAO.DaoLogin;
+import daos.DaoLogin;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.Usuario;

@@ -4,9 +4,9 @@
  */
 package controlador;
 
-import DAO.DaoObras;
-import Exceptions.CamposObligatoriosException;
-import Exceptions.TiempoMaximoException;
+import daos.DaoObras;
+import exception.CamposObligatoriosException;
+import exception.TiempoMaximoException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;

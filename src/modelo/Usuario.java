@@ -1,7 +1,7 @@
 
 package modelo;
 
-import Exceptions.CamposObligatoriosException;
+import exception.CamposObligatoriosException;
 
 /**
  *
