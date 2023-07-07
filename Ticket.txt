@@ -1,9 +1,9 @@
 			Teatro: Chachita
-	Numero de venta : 39
+	Numero de venta : 43
 	Nombre de la función: Romeo y Julieta
 	Total de boletos: 3
-	Fecha de venta: 2023-07-03
-	Hora de venta: 19:28:40
-	Costo Total: 196.95
-	Monto entregado: 500.0
-	Cambio: 303.05
+	Fecha de venta: 2023-07-06
+	Hora de venta: 19:18:02
+	Costo Total: 272.7
+	Monto entregado: 700.0
+	Cambio: 427.30

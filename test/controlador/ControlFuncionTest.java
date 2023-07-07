@@ -6,16 +6,40 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseEvent;
+import modelo.Funcion;
+import modelo.ObraTeatral;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
+import vista.VentanaPrincipal;
+import java.sql.Time;
 
 /**
  *
  * @author jokag
  */
 public class ControlFuncionTest {
+     private VentanaPrincipal menu;
+     private ControlFuncion controlFuncion;
+     private Funcion funcion;
+     private ObraTeatral obraTeatral;
     
     public ControlFuncionTest() {
+    }
+    
+     @Before
+    public void setup() {
+        // Inicializar el objeto Menu para la prueba
+        menu = new VentanaPrincipal();
+        obraTeatral = new ObraTeatral(90, "MoniTest", "Terror", "Muchos Test", 90, "Moni", "Erick", 100);
+        long millis=System.currentTimeMillis();  
+        java.sql.Date date=new java.sql.Date(millis);  
+        long now = System.currentTimeMillis();
+        Time sqlTime = new Time(now);
+        funcion = new Funcion(90, obraTeatral, date, sqlTime);
+        controlFuncion = new ControlFuncion(funcion, menu);
+        
+        
     }
 
     @Test
@@ -30,9 +54,7 @@ public class ControlFuncionTest {
     @Test
     public void testAgregarFuncion() {
         System.out.println("agregarFuncion");
-        ControlFuncion instance = null;
-        instance.agregarFuncion();
-        fail("The test case is a prototype.");
+        controlFuncion.agregarFuncion();
     }
 
 
@@ -41,19 +63,16 @@ public class ControlFuncionTest {
     @Test
     public void testModificarFuncion() {
         System.out.println("modificarFuncion");
-        ControlFuncion instance = null;
-        instance.modificarFuncion();
-        fail("The test case is a prototype.");
+        controlFuncion.modificarFuncion();
+  
     }
 
     @Test
     public void testEliminarFuncion() {
         System.out.println("eliminarFuncion");
-        ControlFuncion instance = null;
-        instance.eliminarFuncion();
-        fail("The test case is a prototype.");
+        controlFuncion.eliminarFuncion();
     }
-
+    
     @Test
     public void testCapturarDatos() {
         System.out.println("capturarDatos");

@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package controlador;
 
 import DAO.DaoAsientos;
@@ -27,30 +24,47 @@ import vista.VentanaPrincipal;
 public class ControlAsientos implements ActionListener {
     
     VentanaPrincipal menu = new VentanaPrincipal();
+    
     Funcion funcion = new Funcion();
+    
     DaoAsientos daoAsientos = new DaoAsientos();
+    
     DaoBoletos daoBoletos = new DaoBoletos();
     
     private final int FILAS_B = 5;
+    
     private final int COLUMNAS_B = 2;
+    
     private final int FILAS_A = 2;
+    
     private final int COLUMNAS_A = 5;
+    
     private int largoBoton = 70;
+    
     private int anchoBoton = 70;
+    
     private int ejeX= 50;
+    
     private int ejeY = 20;
     
-    private final ArrayList<Asiento> lugarAsientos = new ArrayList<Asiento>(); // Lista para almacernar lo asientos que fueron seleccionados
-    private final ArrayList<Boleto> Boletos = new ArrayList<Boleto>(); // Lista para almacenar los ID's de los boletos creados
+    private final ArrayList<Asiento> lugarAsientos = new ArrayList<Asiento>(); 
+    
+    private final ArrayList<Boleto> Boletos = new ArrayList<Boleto>(); 
     
     private JToggleButton[][] botonesB1 = new JToggleButton[FILAS_B][COLUMNAS_B];
+    
     private JToggleButton[][] botonesB2 = new JToggleButton[FILAS_B][COLUMNAS_B];
+    
     private JToggleButton[][] botonesA = new JToggleButton[FILAS_A][COLUMNAS_A];
+    
     private JToggleButton[][] botonesC = new JToggleButton[FILAS_A][COLUMNAS_A];
     
     private JLabel[][] btnB1 = new JLabel[FILAS_B][COLUMNAS_B];
+    
     private JLabel[][] btnB2 = new JLabel[FILAS_B][COLUMNAS_B];
+    
     private JLabel[][] btnA = new JLabel[FILAS_A][COLUMNAS_A];
+    
     private JLabel[][] btnC = new JLabel[FILAS_A][COLUMNAS_A];
 
     /**
@@ -102,15 +116,16 @@ public class ControlAsientos implements ActionListener {
      * Metodo que actualiza los asientos que fueron seleecionados
      **/
     public void actualizarAsientosSeleccionados(){
+        
                     for( int i = 0; i < FILAS_B; i++ ) {
                 for( int k = 0; k < COLUMNAS_B; k++) {
                      if(botonesB1[i][k].isSelected()) {
                                     funcion.getZonaB()[i][k].setDisponible(0);
-                                    lugarAsientos.add(funcion.getZonaB()[i][k]); //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
+                                    lugarAsientos.add(funcion.getZonaB()[i][k]); 
                                 } 
                      if(botonesB2[i][k].isSelected()) {
                                 funcion.getZonaB2()[i][k].setDisponible(0);
-                                lugarAsientos.add(funcion.getZonaB2()[i][k]); //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
+                                lugarAsientos.add(funcion.getZonaB2()[i][k]); 
                             } 
                 } 
                 
@@ -119,11 +134,11 @@ public class ControlAsientos implements ActionListener {
                 for( int k = 0; k < COLUMNAS_A; k++) {
                      if(botonesA[i][k].isSelected()) {
                                    funcion.getZonaA()[i][k].setDisponible(0);
-                                   lugarAsientos.add(funcion.getZonaA()[i][k]); //Añadir losAsientos seleccionados al arreglo para poder crear los boletos
+                                   lugarAsientos.add(funcion.getZonaA()[i][k]); 
                             } 
                      if(botonesC[i][k].isSelected()) {
                             funcion.getZonaC()[i][k].setDisponible(0);
-                            lugarAsientos.add(funcion.getZonaC()[i][k]);  //Añadir los Asientos seleccionados al arreglo para poder crear los boletos
+                            lugarAsientos.add(funcion.getZonaC()[i][k]); 
                         }   
             }
   
@@ -142,15 +157,14 @@ public class ControlAsientos implements ActionListener {
                 boleto.setPrecioBoleto(lugarAsientos.get(i).getPrecioAsiento());
                 boleto.setFechaFuncion(funcion.getFechaDePresentacion());
                 boleto.setHoraFuncion(funcion.getHora());
-
-    //            daoBoletos.agregarBoleto(boleto); // Agregar el boleto en la lista para almacenar los boletos creados y proceder al pago
-                Boletos.add(boleto); //Insertar el boleto en la base de datos
+                
+                Boletos.add(boleto); 
                 }
     }
     
    /**
     * Metodo que crea los asientos de la zona B1
-     * @return Arreglo de botones de la zona B1
+    * @return Arreglo de botones de la zona B1
     **/
     public JToggleButton[][] creacionAsientosZonaB1( ) { 
             
@@ -164,8 +178,7 @@ public class ControlAsientos implements ActionListener {
                     
                     botonesB1[i][k] = new JToggleButton();
                     botonesB1[i][k].setBounds(ejeX, ejeY, largoBoton, anchoBoton);
-                    
-                    //Codigo para crear los LABEL (NOMBRES DE LOS ASIENTOS A UN LADO)
+                   
                     btnB1[i][k] = new JLabel();
                     btnB1[i][k] .setBounds(ejeX - 7, ejeY, largoBoton-35, anchoBoton-35);
                     btnB1[i][k] .setText("B"+ contador);
@@ -202,6 +215,7 @@ public class ControlAsientos implements ActionListener {
      * @return Arreglo de botones de la zona B2
     **/
     public JToggleButton[][] creacionAsientosZonaB2( ) { 
+        
              ejeX = 1050;
              ejeY = 20;
             botonesB2 = new JToggleButton[FILAS_B][COLUMNAS_B];

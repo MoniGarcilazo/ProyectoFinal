@@ -14,7 +14,7 @@ import modelo.Funcion;
 
 /**
  *
- * @author josep
+ * @author Monica Garcilazo
  */
 public class DaoAsientos {
     
@@ -23,6 +23,10 @@ public class DaoAsientos {
     private int filasA = 2;
     private int columnasA = 5;
     
+    /**
+     * Metodo para agregar una sala a la base de datos
+     * @param idSala id de la sale a crear
+     **/
     public void agregarSala( int idSala) {
         
         try
@@ -42,6 +46,10 @@ public class DaoAsientos {
         
     }
     
+    /**
+     * Modifica la sola en la base de datos
+     * @param funcion Fucnion a modificar
+     **/
     public void modificarSala( Funcion funcion) {
         
         try
@@ -92,6 +100,10 @@ public class DaoAsientos {
         
     }
     
+    /**
+     * Elimina una sala en la base de datos
+     * @param idSala ID de la sala a eliminar
+     **/
     public void eliminarSala( int idSala) {
         
         try
@@ -111,6 +123,11 @@ public class DaoAsientos {
         
     }
     
+    /**
+     * Trae o alctualiza los datos de los asientos dependiendo de su estado
+     * @param funcion Funcion a la que se le asignaran los datos de los asientos
+     * @return Funcion con la informacion de los asientos
+     **/
     public Funcion traerDatosAsientos( Funcion funcion) {
         int contador = 0;
         int lugarSilla = 1;

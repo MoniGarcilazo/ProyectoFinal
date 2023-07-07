@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 import java.sql.Date;
@@ -14,15 +11,16 @@ import java.sql.Time;
 public class Boleto {
     
     private int ID;
-    private Asiento lugar;
-    private Funcion funcion;
-    private double precioBoleto;
-    private java.sql.Date fechaFuncion;
-    private java.sql.Time horaFuncion;
-
-    public Boleto() {
-    }
     
+    private Asiento lugar;
+    
+    private Funcion funcion;
+    
+    private double precioBoleto;
+    
+    private Date fechaFuncion;
+    
+    private Time horaFuncion;
 
     public int getID() {
         return ID;

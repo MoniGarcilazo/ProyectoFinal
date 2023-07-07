@@ -7,11 +7,12 @@ package modelo;
  */
 public class Asiento {
     private String nombre;
+    
     private double precioAsiento;
+    
     private int disponible;
 
-    public Asiento() {
-    }
+
 
     public String getNombre() {
         return nombre;

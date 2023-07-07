@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 import Exceptions.CamposObligatoriosException;
@@ -13,12 +10,19 @@ import Exceptions.TiempoMaximoException;
 public class ObraTeatral {
     
     private int ID;
+    
     private String nombreObra;
+    
     private String genero;
+    
     private String resumen;
+    
     private int duracion;
+    
     private String actorPrincipal;
+    
     private String actorSecundario;
+    
     private double precioBoleto;
 
     public ObraTeatral() {

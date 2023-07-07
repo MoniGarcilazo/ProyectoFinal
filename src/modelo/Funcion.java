@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 import java.sql.Time;
@@ -13,12 +10,19 @@ import java.sql.Time;
 public class Funcion {
     
     private int ID;
+    
     private ObraTeatral obra;
+    
     private java.sql.Date fechaDePresentacion;
-    private java.sql.Time hora;
+    
+    private Time hora;
+    
     private Asiento[][] zonaA = new Asiento[2][5];
+    
     private Asiento[][] zonaB = new Asiento[5][2];
+    
     private Asiento[][] zonaB2 = new Asiento[5][2];
+    
     private Asiento[][] zonaC = new Asiento[2][5];
 
     public Funcion() {

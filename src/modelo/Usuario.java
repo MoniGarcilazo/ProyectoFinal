@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+}
 package modelo;
 
 import Exceptions.CamposObligatoriosException;
@@ -13,12 +10,19 @@ import Exceptions.CamposObligatoriosException;
 public class Usuario {
     
     private int ID;
+    
     private String nombre;
+    
     private String apellido;
+    
     private String CURP;
+    
     private String nombreUsuario;
+    
     private String contraseña;
+    
     private String rol;
+    
     private String usuario;
 
     // CONSTRUCTORES

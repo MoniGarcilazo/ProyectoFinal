@@ -1,8 +1,4 @@
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controlador;
 
 import DAO.DaoAsientos;
@@ -24,8 +20,11 @@ import vista.VentanaPrincipal;
 public class ControlFuncion implements ActionListener, MouseListener{
 
     Funcion funcion = null;
+    
     VentanaPrincipal menu = new VentanaPrincipal();
+    
     DaoFuncion daoFuncion = new DaoFuncion();
+    
     DaoAsientos daoAsientos = new DaoAsientos();
 
     /**
@@ -76,7 +75,7 @@ public class ControlFuncion implements ActionListener, MouseListener{
                  int numFunciones = daoFuncion.verificarFuncionesPorDia(funcion);      
                 int numHorarios = daoFuncion.verificarHorariosFunciones(funcion);
                 boolean menosDeDosFunciones = numFunciones == 0 || numFunciones == 1 ;
-                // Este if con ayuda del dao verifica si existen menos de 2 funciones para poder agregar otros, en caso contrario no agregar y mandar msj del error
+                
                 if (menosDeDosFunciones) {                                  
                             if( numHorarios == 0 ) {
                                 int idSala = daoFuncion.agregarFuncion(funcion);
@@ -145,7 +144,7 @@ public class ControlFuncion implements ActionListener, MouseListener{
         {
             ObraTeatral obra = (ObraTeatral) this.menu.getPanelFuncion().getComboBoxObras().getSelectedItem();
         
-          //Capturar la fecha y pasarlo a formato para base MySQL
+         
             Date date = this.menu.getPanelFuncion().getCalendarFecha().getDate();
             long d = date.getTime(); 
             
@@ -156,7 +155,7 @@ public class ControlFuncion implements ActionListener, MouseListener{
                 java.sql.Time horaConvertida = java.sql.Time.valueOf(hora);
             
                 this.funcion = new Funcion();
-                //Establecer la obra a la funcion
+
             this.funcion.setObra(obra);
             this.funcion.setHora(horaConvertida);
             //Asignar la fecha la funcion

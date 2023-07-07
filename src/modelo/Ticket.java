@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package modelo;
 
 import java.text.DecimalFormat;
@@ -9,19 +6,23 @@ import java.text.DecimalFormat;
 public class Ticket {
     
     private String nombreTeatro = "Chachita";
+    
     private int numDeVenta; //ID
+    
     private Funcion funcion;
-   // private java.time.LocalDate fechaVenta;
+   
     private java.sql.Date fechaVenta;
+    
     private  java.sql.Time horaVenta;
+    
     private int boletosVendidos;
+    
     private double total;
+    
     private double montoEntregado;
+    
     private double cambio;
 
-    public Ticket() {
-    }
-    
 
     public String getNombreTeatro() {
         return nombreTeatro;
