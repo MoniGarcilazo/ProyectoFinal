@@ -6,10 +6,14 @@
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/controlador/ControlVentanaPrincipalTest.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoReporte.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/Administrador.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/Boleto.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/controlador/ControlAsientosTest.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlAsientos.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlObras.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoBoletos.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/Usuario.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoFuncion.java</file>
-            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/DAO/DaoFuncionTest.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/Ticket.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/ObraTeatral.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoUsuario.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoVentaBoleto.java</file>
@@ -17,6 +21,7 @@
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/controlador/ControlFuncion.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/controlador/ControlFuncionTest.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/Funcion.java</file>
+            <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/modelo/Asiento.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/test/controlador/ControlUsuarioTest.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoAsientos.java</file>
             <file>file:/C:/Users/monig/OneDrive/Desktop/Tarea/T_Construccion/ProyectoFinal/src/DAO/DaoLogin.java</file>
